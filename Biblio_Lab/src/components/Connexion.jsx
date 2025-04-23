@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from "./servicesApi/CallApi"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Connexion = () => {
@@ -9,7 +8,7 @@ const Connexion = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!username || !password) {
@@ -17,19 +16,10 @@ const Connexion = () => {
       return;
     }
 
-    try {
-      setError('');
-      const res = await axios.post('/auth/login', { username, password });
-
-      // Enregistre le token
-      localStorage.setItem('token', res.data.token);
-
-      // Redirection vers accueil
-      navigate('/accueil');
-    } catch (err) {
-      console.error("Erreur de connexion :", err.response?.data || err.message);
-      setError(err.response?.data?.msg || 'Échec de la connexion. Veuillez réessayer.');
-    }
+    // Simule une connexion réussie (sans back-end)
+    setError('');
+    localStorage.setItem('fakeToken', '123456'); // juste pour simuler
+    navigate('/accueil');
   };
 
   return (
@@ -71,7 +61,7 @@ const Connexion = () => {
           </form>
 
           <div className="mt-3 text-center">
-            <p className="mb-0">Pas de compte ? <a href="/Sign in">S'inscrire</a></p>
+            <p className="mb-0">Pas de compte ? <a href="/Log in">S'inscrire</a></p>
           </div>
         </div>
       </div>

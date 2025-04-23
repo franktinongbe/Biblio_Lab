@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "./servicesApi/CallApi"; 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "react-toastify/dist/ReactToastify.css";
 
 function Inscription() {
   const navigate = useNavigate();
@@ -23,18 +21,22 @@ function Inscription() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
-    try {
-      const res = await axios.post("/auth/register", formData);
-      console.log("Inscription réussie :", res.data);
-      navigate("/accueil");
-    } catch (err) {
-      console.error("Erreur d'inscription :", err.response?.data || err.message);
-      setError(err.response?.data?.msg || "Une erreur est survenue.");
+    // Vérification si tous les champs sont remplis
+    const vide = Object.values(formData).some((val) => val.trim() === "");
+    if (vide) {
+      setError("Veuillez remplir tous les champs.");
+      return;
     }
+
+    // Sauvegarder les données dans le localStorage pour simuler un enregistrement
+    localStorage.setItem("user", JSON.stringify(formData));
+
+    // Naviguer vers l'accueil après "inscription"
+    navigate("/accueil");
   };
 
   return (
