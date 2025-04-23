@@ -131,6 +131,7 @@ function Inscription() {
         <button type="submit" className="btn btn-warning w-100">
           S'inscrire
         </button>
+        <br /> <br />
       </form>
     </div>
   );
