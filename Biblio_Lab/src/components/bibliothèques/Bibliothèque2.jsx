@@ -2,34 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Bibliothèque1() {
+function Bibliothèque2() {
   const programme = [
-    { jour: "Lundi", activité: "Atelier d'écriture" },
-    { jour: "Mercredi", activité: "Heure du conte pour enfants" },
-    { jour: "Vendredi", activité: "Projection documentaire" },
+    { jour: "Mardi", activité: "Atelier de lecture" },
+    { jour: "Jeudi", activité: "Heure du poésir pour enfants" },
+    { jour: "Vendredi", activité: "Projection de dessin animé" },
   ];
 
   const actualites = [
-    "Nouvelle salle de lecture ouverte !",
-    "Exposition : Livres anciens jusqu’au fin mai.",
-    "Concours de lecture – inscriptions ouvertes.",
+    "Journée porte ouverte !",
+    "Exposition : Livres jusqu’au fin mai.",
+    "Concours d'écriture – inscriptions ouvertes.",
   ];
 
   const livres = [
     {
-      titre: "L'Étranger - Albert Camus",
+      titre: "Une vie de boy - Ferdinand Oyono",
       image: "https://i.pinimg.com/736x/71/0f/56/710f56ca11ca5f08edd62eec9aea547b.jpg",
     },
     {
-      titre: "Le Petit Prince - Antoine de Saint-Exupéry",
+      titre: "Le lion et la perle - Wole Soyinka",
       image: "https://i.pinimg.com/736x/2d/6d/0b/2d6d0b7fb21183921f86f23f1c15ad94.jpg",
     },
     {
-      titre: "1984 - George Orwell",
-      image: "https://i.pinimg.com/736x/47/ec/55/47ec55cb4487080ea75a344228297ad2.jpg",
+      titre: "une si longue lettre- Mariam Ba",
+      image: "https://i.pinimg.com/736x/89/40/31/8940316fa0729cee710202730780f5ed.jpg",
     },
     {
-      titre: "La Peste - Albert Camus",
+      titre: "Sous l'orage - Seydou Badian",
       image: "https://i.pinimg.com/736x/d0/a8/59/d0a859b50b31803f7b3fa7ebf9324b5d.jpg",
     },
   ];
@@ -38,7 +38,7 @@ function Bibliothèque1() {
     <div className="container py-5">
       {/* Hero */}
       <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque1</h1>
+        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque 2</h1>
         <p className="lead text-muted">
           Un lieu moderne dédié au savoir et à la créativité.
         </p>
@@ -93,7 +93,7 @@ function Bibliothèque1() {
         </div>
 
         <div className="text-end mt-4">
-          <Link to="/library1/books" className="btn btn-outline-success">
+          <Link to="/library2/books" className="btn btn-outline-success">
             Voir tous les livres →
           </Link>
         </div>
@@ -102,4 +102,4 @@ function Bibliothèque1() {
   );
 }
 
-export default Bibliothèque1;
+export default Bibliothèque2;

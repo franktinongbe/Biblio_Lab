@@ -38,7 +38,7 @@ function Bibliothèque1() {
     <div className="container py-5">
       {/* Hero */}
       <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque1</h1>
+        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque 1</h1>
         <p className="lead text-muted">
           Un lieu moderne dédié au savoir et à la créativité.
         </p>
