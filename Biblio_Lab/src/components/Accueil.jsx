@@ -30,8 +30,8 @@ function Accueil() {
             ></div>
             <Carousel.Caption style={{ zIndex: 2, position: 'absolute' }}>
               <h1>Bienvenue à Biblio-Lab</h1>
-              <h3>First slide label</h3>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h3>Pour vos enfants faites le bon choix</h3>
+              <p>Nous proposons au public une gamme d'ouvrage adapté aux besoins de vos enfants.</p>
             </Carousel.Caption>
           </div>
         </Carousel.Item>
@@ -57,8 +57,8 @@ function Accueil() {
             ></div>
             <Carousel.Caption style={{ zIndex: 2, position: 'absolute' }}>
               <h1>Bienvenue à Biblio-Lab</h1>
-              <h3>Second slide label</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3>La bibliothèque plus proche et adapté à vous</h3>
+              <p>Surfer dans l'univers documentaire de nos bibliothèques partenaires, avec un fond documentaire riche et adapté à tous.</p>
             </Carousel.Caption>
           </div>
         </Carousel.Item>
@@ -84,9 +84,9 @@ function Accueil() {
             ></div>
             <Carousel.Caption style={{ zIndex: 2, position: 'absolute' }}>
               <h1>Bienvenue à Biblio-Lab</h1>
-              <h3>Third slide label</h3>
+              <h3>Rejoignez nous dès-maintenant</h3>
               <p>
-                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                Profitez de nos services et formez vous.
               </p>
             </Carousel.Caption>
           </div>
@@ -98,7 +98,7 @@ function Accueil() {
         <div className="row mb-4"> {/* Added margin-bottom to the row */}
           <div className="col-12 col-md-4">
             <h2>Nos Livres</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Retrouvez toutes les collections de nos bibliothèques partenaires ici.</p>
             <button
               onClick={() => navigate('/library')}
               className="text-light border border-dark rounded px-3 py-1 bg-dark"
@@ -129,7 +129,9 @@ function Accueil() {
           </div>
           <div className="col-12 col-md-4">
             <h2>De plus</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p> Le <strong>réseau Bibliolab</strong> regroupe plusieurs bibliothèques innovantes au service de tous. 
+          Nous croyons en une culture ouverte, inclusive et enrichissante. Plus que des lieux de lecture, 
+          nos bibliothèques sont des espaces de vie, d’apprentissage et de partage..</p>
             <button
               onClick={() => navigate('/Sign in')}
               className="text-light border border-dark rounded px-3 py-1 bg-dark"
@@ -144,8 +146,9 @@ function Accueil() {
         <div className="row mb-4"> {/* Added margin-bottom to the row */}
           <div className="col-12 col-md-4">
             <h2>Qui sommes nous?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Nous sommes un réseau de bibliothèques passionné par la diffusion du savoir et de la culture. 
+          Présents en ligne, nous mettons à disposition un vaste choix de documents, d'activités, et d'espaces modernes 
+          pour permettre à chacun d'apprendre, de se divertir et de faire des rencontre.</p>
           </div>
           <div className="col-12 col-md-4">
             <div style={{ position: 'relative' }}>
@@ -170,8 +173,8 @@ function Accueil() {
           </div>
           <div className="col-12 col-md-4">
             <h2>Contactez nous</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Prenez contacte dès aujourd'hui, une équipe dynamique et accueillante sera à votre service.</p>
+
             <button
               onClick={() => navigate('/Sign in')}
               className="text-light border border-dark rounded px-3 py-1 bg-dark"
