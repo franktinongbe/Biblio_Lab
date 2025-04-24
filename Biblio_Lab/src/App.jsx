@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Accueil from "./components/Accueil";
+import Bibliothèques from "./components/bibliothèques/Bibliothèques";
 import Infos from "./components/Infos"
-import Bibliothèques from "./components/Bibliothèques";
-import Connexion from "./components/Connexion";
-import Inscription from "./components/Inscription";
 import PolitiqueDeConfidentialité from "./components/PolitiqueDeConfidentialité";
 import Newsletter from "./components/Newsletter";
 
