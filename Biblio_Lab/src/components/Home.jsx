@@ -8,7 +8,7 @@ function Home() {
       <header
         className="text-white py-5"
         style={{
-          background: 'linear-gradient(to right, rgb(17, 51, 247), rgb(53, 82, 248))',
+          background: 'linear-gradient(to right, #fd7e14, rgb(53, 82, 248))',
           minHeight: '100vh',
         }}
       >

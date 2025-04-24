@@ -13,8 +13,8 @@ function Accueil() {
           <div style={{ position: 'relative' }}>
             <img
               className="d-block w-100"
-              src="student.jpeg"
-              alt="student"
+              src="/images/1000262593.jpg"
+              alt="library"
               style={{ maxHeight: '80vh', width: '100%', objectFit: 'cover' }}
             />
             <div
@@ -40,7 +40,7 @@ function Accueil() {
           <div style={{ position: 'relative' }}>
             <img
               className="d-block w-100"
-              src="work.jpeg"
+              src="images/1000262596.jpg"
               alt="work"
               style={{ maxHeight: '80vh', width: '100%', objectFit: 'cover' }}
             />
@@ -67,7 +67,7 @@ function Accueil() {
           <div style={{ position: 'relative' }}>
             <img
               className="d-block w-100"
-              src="young.jpeg"
+              src="images/1000262599.jpg"
               alt="young"
               style={{ maxHeight: '80vh', width: '100%', objectFit: 'cover' }}
             />
@@ -109,7 +109,7 @@ function Accueil() {
           <div className="col-12 col-md-4">
             <div style={{ position: 'relative' }}>
               <img
-                src="young.jpeg"
+                src="images/pexels-kampus-5940841.jpg"
                 alt="person"
                 className="img-fluid"
                 style={{ maxHeight: '350px', maxWidth: '350px' }}
@@ -153,7 +153,7 @@ function Accueil() {
           <div className="col-12 col-md-4">
             <div style={{ position: 'relative' }}>
               <img
-                src="student.jpeg"
+                src="images/pexels-pixabay-256455.jpg"
                 alt="person"
                 className="img-fluid"
                 style={{ maxHeight: '350px', maxWidth: '350px' }}

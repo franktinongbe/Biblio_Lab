@@ -15,6 +15,7 @@ function Inscription() {
   });
 
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,115 +25,65 @@ function Inscription() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
+    setSuccess(false);
 
-    // Vérification si tous les champs sont remplis
     const vide = Object.values(formData).some((val) => val.trim() === "");
     if (vide) {
       setError("Veuillez remplir tous les champs.");
       return;
     }
 
-    // Sauvegarder les données dans le localStorage pour simuler un enregistrement
     localStorage.setItem("user", JSON.stringify(formData));
+    setSuccess(true);
 
-    // Naviguer vers l'accueil après "inscription"
-    navigate("/accueil");
+    setTimeout(() => {
+      navigate("/accueil");
+    }, 1500);
   };
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center">Formulaire d'Inscription</h2>
+      <div className="mx-auto shadow-lg rounded-4 p-4" style={{ maxWidth: "600px", background: "#f8f9fa" }}>
+        <h2 className="text-center mb-4">Formulaire d'Inscription</h2>
 
-      {error && (
-        <div className="alert alert-danger text-center" role="alert">
-          {error}
-        </div>
-      )}
+        {error && (
+          <div className="alert alert-danger text-center">{error}</div>
+        )}
+        {success && (
+          <div className="alert alert-success text-center">
+            Inscription réussie ! Redirection en cours...
+          </div>
+        )}
 
-      <form onSubmit={handleSubmit} className="mt-4">
-        <div className="mb-3">
-          <label htmlFor="nom" className="form-label">Nom</label>
-          <input
-            type="text"
-            id="nom"
-            name="nom"
-            className="form-control"
-            value={formData.nom}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit}>
+          {[
+            { label: "Nom", name: "nom", type: "text" },
+            { label: "Prénom", name: "prenom", type: "text" },
+            { label: "Email", name: "email", type: "email" },
+            { label: "Téléphone", name: "telephone", type: "tel" },
+            { label: "Nom d'utilisateur", name: "username", type: "text" },
+            { label: "Mot de passe", name: "password", type: "password" },
+          ].map(({ label, name, type }) => (
+            <div className="mb-3" key={name}>
+              <label htmlFor={name} className="form-label">{label}</label>
+              <input
+                type={type}
+                id={name}
+                name={name}
+                className="form-control"
+                value={formData[name]}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          ))}
 
-        <div className="mb-3">
-          <label htmlFor="prenom" className="form-label">Prénom</label>
-          <input
-            type="text"
-            id="prenom"
-            name="prenom"
-            className="form-control"
-            value={formData.prenom}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            className="form-control"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="telephone" className="form-label">Téléphone</label>
-          <input
-            type="tel"
-            id="telephone"
-            name="telephone"
-            className="form-control"
-            value={formData.telephone}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="username" className="form-label">Nom d'utilisateur</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            className="form-control"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">Mot de passe</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            className="form-control"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <button type="submit" className="btn btn-warning w-100">
-          S'inscrire
-        </button>
-        <br /> <br />
-      </form>
+          <button type="submit" className="btn btn-warning w-100 mt-3">
+            S'inscrire
+          </button>
+        </form>
+      </div>
+      <br /> <br />
     </div>
   );
 }
