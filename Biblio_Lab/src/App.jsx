@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Accueil from "./components/Accueil";
@@ -17,18 +17,15 @@ import Home from "./components/Home";
 import AdminLivres from "./components/AdminLivres";
 import RouteAdmin from "./components/RouteAdmin";
 
-
-// Fonction pour afficher la Navbar uniquement sur les pages qui ne sont pas "/","/inscription" et "/connexion"
+// Layout avec Navbar et Footer
 const Layout = ({ children }) => {
   const location = useLocation();
-  const noNavbarPaths = ["/", "/Log in", "/Sign in"]; // Liste des pages sans Navbar
+  const noNavbarPaths = ["/", "/Sign in", "/Log in"]; // sans Navbar
 
   return (
-    <div className="d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100" style={{ fontFamily: 'Montserrat, sans-serif' }}>
       {!noNavbarPaths.includes(location.pathname) && <Navbar />}
-      <div className="flex-grow-1">
-        {children}
-      </div>
+      <div className="flex-grow-1">{children}</div>
       <Footer />
     </div>
   );
@@ -36,10 +33,14 @@ const Layout = ({ children }) => {
 
 function App() {
   return (
-  
     <Router>
       <Routes>
-        <Route path="/" element={<Layout><Home /></Layout>} />
+        {/* Pages sans Navbar (pas de Layout) */}
+        <Route path="/" element={<Home />} />
+        <Route path="/Sign in" element={<Connexion />} />
+        <Route path="/Log in" element={<Inscription />} />
+
+        {/* Pages avec Navbar via Layout */}
         <Route path="/accueil" element={<Layout><Accueil /></Layout>} />
         <Route path="/library" element={<Layout><Bibliothèques /></Layout>} />
         <Route path="/library1" element={<Layout><Bibliothèque1 /></Layout>} />
@@ -47,11 +48,9 @@ function App() {
         <Route path="/library3" element={<Layout><Bibliothèque3 /></Layout>} />
         <Route path="/library4" element={<Layout><Bibliothèque4 /></Layout>} />
         <Route path="/about" element={<Layout><Infos /></Layout>} />
-        <Route path="/Sign in" element={<Layout><Connexion /></Layout>} />
-        <Route path="/Log in" element={<Layout><Inscription /></Layout>} />
         <Route path="/pdc" element={<Layout><PolitiqueDeConfidentialité /></Layout>} />
         <Route path="/newsletter" element={<Layout><Newsletter /></Layout>} />
-        <Route path="/admin" element={  <AdminLivres />} />
+        <Route path="/admin" element={<AdminLivres />} />
       </Routes>
     </Router>
   );

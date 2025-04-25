@@ -82,7 +82,7 @@ const Connexion = () => {
           </form>
 
           <div className="mt-3 text-center">
-            <p className="mb-0">Pas de compte ? <a href="/inscription">S'inscrire</a></p>
+            <p className="mb-0">Pas de compte ? <a href="/Log in">S'inscrire</a></p>
           </div>
         </div>
       </div>

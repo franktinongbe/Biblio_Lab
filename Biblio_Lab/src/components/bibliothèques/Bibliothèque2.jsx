@@ -18,7 +18,7 @@ function Bibliothèque2() {
   const livres = [
     {
       titre: "Une vie de boy - Ferdinand Oyono",
-      image: "https://i.pinimg.com/736x/71/0f/56/710f56ca11ca5f08edd62eec9aea547b.jpg",
+      image: "https://i.pinimg.com/736x/f1/1f/b0/f11fb00db4a269084a5f6408aae06f71.jpg",
     },
     {
       titre: "Le lion et la perle - Wole Soyinka",
@@ -30,7 +30,7 @@ function Bibliothèque2() {
     },
     {
       titre: "Sous l'orage - Seydou Badian",
-      image: "https://i.pinimg.com/736x/d0/a8/59/d0a859b50b31803f7b3fa7ebf9324b5d.jpg",
+      image: "https://i.pinimg.com/736x/f6/e3/4a/f6e34a27f1bda105ec581c48eb07529f.jpg",
     },
   ];
 
