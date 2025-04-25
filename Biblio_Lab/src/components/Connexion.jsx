@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {jwtDecode} from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
-import axios from "../services/CallApi"; 
+import axios from "../services/CallApi";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Connexion = () => {
@@ -25,7 +25,6 @@ const Connexion = () => {
 
       localStorage.setItem('token', token);
 
-      // Décoder le token pour récupérer le rôle
       const decoded = jwtDecode(token);
       const role = decoded?.role;
 
@@ -77,7 +76,30 @@ const Connexion = () => {
             </div>
 
             <div className="d-grid">
-              <button type="submit" className="btn btn-warning">Se connecter</button>
+              <button
+                type="submit"
+                className="btn btn-gradient"
+                style={{
+                  background: 'linear-gradient(to right, #fd7e14, rgb(53, 82, 248))',
+                  color: 'white',
+                  fontWeight: '600',
+                  border: 'none',
+                  borderRadius: '30px',
+                  padding: '12px 20px',
+                  fontSize: '1rem',
+                  transition: 'transform 0.2s ease, box-shadow 0.3s ease',
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.transform = 'scale(1.05)';
+                  e.target.style.boxShadow = '0 8px 15px rgba(238, 9, 121, 0.4)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.transform = 'scale(1)';
+                  e.target.style.boxShadow = 'none';
+                }}
+              >
+                Se connecter
+              </button>
             </div>
           </form>
 
