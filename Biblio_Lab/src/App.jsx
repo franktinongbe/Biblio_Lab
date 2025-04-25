@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation, BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Accueil from "./components/Accueil";
@@ -14,6 +14,9 @@ import Bibliothèque2 from "./components/bibliothèques/Bibliothèque2";
 import Bibliothèque3 from "./components/bibliothèques/Bibliothèque3";
 import Bibliothèque4 from "./components/bibliothèques/Bibliothèque4";
 import Home from "./components/Home";
+import AdminLivres from "./components/AdminLivres";
+import RouteAdmin from "./components/RouteAdmin";
+
 
 // Fonction pour afficher la Navbar uniquement sur les pages qui ne sont pas "/","/inscription" et "/connexion"
 const Layout = ({ children }) => {
@@ -33,6 +36,7 @@ const Layout = ({ children }) => {
 
 function App() {
   return (
+  
     <Router>
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
@@ -47,6 +51,7 @@ function App() {
         <Route path="/Log in" element={<Layout><Inscription /></Layout>} />
         <Route path="/pdc" element={<Layout><PolitiqueDeConfidentialité /></Layout>} />
         <Route path="/newsletter" element={<Layout><Newsletter /></Layout>} />
+        <Route path="/admin" element={  <AdminLivres />} />
       </Routes>
     </Router>
   );

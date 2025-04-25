@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "../services/CallApi"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Inscription() {
@@ -22,7 +23,7 @@ function Inscription() {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess(false);
@@ -33,12 +34,20 @@ function Inscription() {
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify(formData));
-    setSuccess(true);
+    try {
+      // On envoie formData avec rôle défini en interne
+      await axios.post("/auth/register", { ...formData, role: "utilisateur" });
+      setSuccess(true);
 
-    setTimeout(() => {
-      navigate("/accueil");
-    }, 1500);
+      setTimeout(() => {
+        navigate("/accueil");
+      }, 1500);
+    } catch (err) {
+      setError(
+        err.response?.data?.msg ||
+        "Erreur lors de l'inscription. Veuillez réessayer."
+      );
+    }
   };
 
   return (
@@ -46,9 +55,7 @@ function Inscription() {
       <div className="mx-auto shadow-lg rounded-4 p-4" style={{ maxWidth: "600px", background: "#f8f9fa" }}>
         <h2 className="text-center mb-4">Formulaire d'Inscription</h2>
 
-        {error && (
-          <div className="alert alert-danger text-center">{error}</div>
-        )}
+        {error && <div className="alert alert-danger text-center">{error}</div>}
         {success && (
           <div className="alert alert-success text-center">
             Inscription réussie ! Redirection en cours...
@@ -56,7 +63,7 @@ function Inscription() {
         )}
 
         <form onSubmit={handleSubmit}>
-          {[
+          {[ 
             { label: "Nom", name: "nom", type: "text" },
             { label: "Prénom", name: "prenom", type: "text" },
             { label: "Email", name: "email", type: "email" },
@@ -83,7 +90,6 @@ function Inscription() {
           </button>
         </form>
       </div>
-      <br /> <br />
     </div>
   );
 }
