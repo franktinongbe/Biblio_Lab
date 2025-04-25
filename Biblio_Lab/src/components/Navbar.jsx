@@ -65,7 +65,7 @@ function Navbar() {
             </button>
           </div>
           <nav className="d-flex flex-column gap-3 mt-4">
-            <Link className="text-white text-decoration-none" to="/">Accueil</Link>
+            <Link className="text-white text-decoration-none" to="/accueil">Accueil</Link>
             <Link className="text-white text-decoration-none" to="/library">Bibliothèques</Link>
             <Link className="text-white text-decoration-none" to="/library1">Bibliothèque 1</Link>
             <Link className="text-white text-decoration-none" to="/library2">Bibliothèque 2</Link>
@@ -94,10 +94,10 @@ function Navbar() {
 
         {!isMobile && (
           <nav className="d-flex gap-4">
-            <Link className="text-white px-3 py-1 rounded" style={{ fontFamily: "Times New Roman", backgroundColor: 'black', textDecoration: "none", fontSize: "1.2rem" }} to="/">Accueil</Link>
+            <Link className="text-white px-3 py-1 rounded" style={{ fontFamily: "Monsterat", backgroundColor: 'black', textDecoration: "none", fontSize: "1.2rem" }} to="/accueil">Accueil</Link>
 
             <ButtonGroup>
-              <Link to="/library" className="btn text-white" style={{ backgroundColor: 'black', fontFamily: "Times New Roman", fontSize: "1.2rem", borderTopLeftRadius: "0.5rem", borderBottomLeftRadius: "0.5rem", padding: "0.5rem 1rem", textDecoration: "none" }}>Bibliothèques</Link>
+              <Link to="/library" className="btn text-white" style={{ backgroundColor: 'black', fontFamily: "Monsterat", fontSize: "1.2rem", borderTopLeftRadius: "0.5rem", borderBottomLeftRadius: "0.5rem", padding: "0.5rem 1rem", textDecoration: "none" }}>Bibliothèques</Link>
 
               <DropdownButton
                 as={ButtonGroup}
@@ -113,7 +113,7 @@ function Navbar() {
               </DropdownButton>
             </ButtonGroup>
 
-            <Link className="text-white px-3 py-1 rounded" style={{ fontFamily: "Times New Roman", backgroundColor: 'black', textDecoration: "none", fontSize: "1.2rem" }} to="/about">Infos</Link>
+            <Link className="text-white px-3 py-1 rounded" style={{ fontFamily: "Monsterat", backgroundColor: 'black', textDecoration: "none", fontSize: "1.2rem" }} to="/about">Infos</Link>
           </nav>
         )}
       </header>

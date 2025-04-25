@@ -2,9 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Ajout dynamique de la police Montserrat
+const montserratFont = document.createElement('link');
+montserratFont.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap';
+montserratFont.rel = 'stylesheet';
+document.head.appendChild(montserratFont);
+
 function Home() {
   return (
-    <>
+    <div style={{ fontFamily: "'Montserrat', sans-serif" }}>
       <header
         className="text-white py-5"
         style={{
@@ -79,7 +85,7 @@ function Home() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

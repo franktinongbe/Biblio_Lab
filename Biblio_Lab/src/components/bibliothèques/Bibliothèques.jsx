@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+// Importation de la police Montserrat via JS si non incluse ailleurs
+const montserratStyle = document.createElement("link");
+montserratStyle.href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap";
+montserratStyle.rel = "stylesheet";
+document.head.appendChild(montserratStyle);
+
 function Bibliothèques() {
   const [commentaires, setCommentaires] = useState([]);
   const [nom, setNom] = useState("");
@@ -48,9 +54,15 @@ function Bibliothèques() {
   };
 
   return (
-    <div className="bg-light">
+    <div className="bg-light" style={{ fontFamily: "'Montserrat', sans-serif" }}>
       {/* Hero Section */}
-      <div className="text-center py-5" style={{ backgroundColor: "#fd7e14", color: "white" }}>
+      <div
+        className="text-center py-5"
+        style={{
+          background: "linear-gradient(to right,rgb(251, 253, 255))",
+          color: "black",
+        }}
+      >
         <h1 className="display-4 fw-bold">Nos Bibliothèques en Réseau</h1>
         <p className="lead">Découvrez les lieux de savoir à travers notre réseau de bibliothèques</p>
       </div>
@@ -60,7 +72,7 @@ function Bibliothèques() {
         <div className="row g-4">
           {libraries.map((library) => (
             <div key={library.id} className="col-md-6 col-lg-3">
-              <div className="card h-100 shadow border-dark">
+              <div className="card h-100 shadow border-0">
                 <img
                   src={library.image}
                   className="card-img-top"
@@ -70,7 +82,10 @@ function Bibliothèques() {
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{library.name}</h5>
                   <p className="card-text">{library.description}</p>
-                  <Link to={library.path} className="btn btn-outline-dark mt-auto">
+                  <Link to={library.path} className="btn mt-auto text-white" style={{
+                    background: "linear-gradient(to right, #f2994a, #2d9cdb)",
+                    border: "none"
+                  }}>
                     Découvrir
                   </Link>
                 </div>
@@ -81,7 +96,7 @@ function Bibliothèques() {
 
         {/* Commentaires Section */}
         <section className="mt-5">
-          <h3 className="mb-3 text-warning">💬 Vos Commentaires sur les Bibliothèques</h3>
+          <h3 className="mb-3" style={{ color: "#f2994a" }}>💬 Vos Commentaires sur les Bibliothèques</h3>
 
           {/* Formulaire de commentaire */}
           <form onSubmit={handleCommentSubmit} className="mb-4">
@@ -101,7 +116,12 @@ function Bibliothèques() {
                 onChange={(e) => setNouveauCommentaire(e.target.value)}
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-warning">Envoyer</button>
+            <button type="submit" className="btn text-white" style={{
+              background: "linear-gradient(to right, #f2994a, #2d9cdb)",
+              border: "none"
+            }}>
+              Envoyer
+            </button>
           </form>
 
           {/* Liste des commentaires */}
