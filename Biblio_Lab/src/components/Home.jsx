@@ -1,12 +1,71 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Book } from 'react-bootstrap-icons'; // Assure-toi d'avoir installé react-bootstrap-icons
 
-// Ajout dynamique de la police Montserrat
+// Ajout dynamique de la police Montserrat et styles animés
 const montserratFont = document.createElement('link');
 montserratFont.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap';
 montserratFont.rel = 'stylesheet';
 document.head.appendChild(montserratFont);
+
+const style = document.createElement('style');
+style.innerHTML = `
+  @keyframes swing {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(5deg); }
+  }
+
+  @keyframes colorShift {
+    0% { color: #ffffff; }
+    25% { color: #ffc107; }
+    50% { color: #00d1b2; }
+    75% { color: #ff6f61; }
+    100% { color: #ffffff; }
+  }
+
+  @keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .book-icon-animated {
+    animation: swing 2.5s ease-in-out infinite, colorShift 5s ease-in-out infinite;
+    display: inline-block;
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .connect-btn {
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ADEDE, #fddb92);
+    background-size: 600% 600%;
+    animation: gradientMove 6s ease infinite, pulse 2.5s ease-in-out infinite;
+    border: none;
+    color: white !important;
+    padding: 14px 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .connect-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+  }
+`;
+document.head.appendChild(style);
 
 function Home() {
   return (
@@ -19,6 +78,9 @@ function Home() {
         }}
       >
         <div className="container text-center">
+          <div className="book-icon-animated">
+            <Book />
+          </div>
           <h1
             className="display-4 mb-4"
             style={{
@@ -39,19 +101,7 @@ function Home() {
             Connectez-vous dès aujourd'hui pour accéder à toutes les documentations.
           </p>
 
-          <Link
-            to="/Sign in"
-            className="btn btn-light btn-lg mb-5"
-            style={{
-              padding: '12px 30px',
-              fontSize: '1.2rem',
-              borderRadius: '50px',
-              fontWeight: '600',
-              transition: 'background-color 0.3s ease-in-out',
-            }}
-            onMouseOver={(e) => (e.target.style.backgroundColor = '#f39c12')}
-            onMouseOut={(e) => (e.target.style.backgroundColor = '#f8f9fa')}
-          >
+          <Link to="/Sign in" className="connect-btn mb-5">
             Connectez-vous
           </Link>
         </div>
