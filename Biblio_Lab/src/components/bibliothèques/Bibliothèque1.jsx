@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Bibliothèque1() {
+  const [livres, setLivres] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [erreur, setErreur] = useState("");
+
   const programme = [
     { jour: "Lundi", activité: "Atelier d'écriture" },
     { jour: "Mercredi", activité: "Heure du conte pour enfants" },
@@ -15,28 +20,28 @@ function Bibliothèque1() {
     "Concours de lecture – inscriptions ouvertes.",
   ];
 
-  const livres = [
-    {
-      titre: "L'Étranger - Albert Camus",
-      image: "https://i.pinimg.com/736x/71/0f/56/710f56ca11ca5f08edd62eec9aea547b.jpg",
-    },
-    {
-      titre: "Le Petit Prince - Antoine de Saint-Exupéry",
-      image: "https://i.pinimg.com/736x/2d/6d/0b/2d6d0b7fb21183921f86f23f1c15ad94.jpg",
-    },
-    {
-      titre: "1984 - George Orwell",
-      image: "https://i.pinimg.com/736x/47/ec/55/47ec55cb4487080ea75a344228297ad2.jpg",
-    },
-    {
-      titre: "La Peste - Albert Camus",
-      image: "https://i.pinimg.com/736x/d0/a8/59/d0a859b50b31803f7b3fa7ebf9324b5d.jpg",
-    },
-  ];
+  useEffect(() => {
+    const fetchLivres = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.get("https://bibliolab.onrender.com/api/books", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setLivres(response.data);
+        setLoading(false);
+      } catch (error) {
+        setErreur("Erreur lors du chargement des livres.");
+        setLoading(false);
+      }
+    };
+
+    fetchLivres();
+  }, []);
 
   return (
     <div className="container py-5">
-      {/* Hero */}
       <div className="text-center mb-5">
         <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque 1</h1>
         <p className="lead text-muted">
@@ -71,26 +76,36 @@ function Bibliothèque1() {
         </div>
       </section>
 
-      {/* Livres disponibles */}
+      {/* Livres dynamiques */}
       <section>
         <h3 className="mb-4 text-success">📖 Livres Disponibles</h3>
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-          {livres.map((livre, i) => (
-            <div key={i} className="col">
-              <div className="card h-100 shadow-sm border-0 hover-shadow">
-                <img
-                  src={livre.image}
-                  alt={livre.titre}
-                  className="card-img-top"
-                  style={{ height: "250px", objectFit: "cover" }}
-                />
-                <div className="card-body">
-                  <p className="card-text text-center fw-semibold">{livre.titre}</p>
+
+        {loading ? (
+          <p>Chargement des livres...</p>
+        ) : erreur ? (
+          <div className="alert alert-danger">{erreur}</div>
+        ) : (
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            {livres.map((livre) => (
+              <div key={livre._id} className="col">
+                <div className="card h-100 shadow-sm border-0">
+                  <img
+                    src={livre.coverImage || "https://via.placeholder.com/250x350?text=Livre"}
+                    alt={livre.title}
+                    className="card-img-top"
+                    style={{ height: "250px", objectFit: "cover" }}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title text-center">{livre.title}</h5>
+                    <p className="text-center text-muted small">
+                      {livre.author?.name || "Auteur inconnu"}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         <div className="text-end mt-4">
           <Link to="/library1/books" className="btn btn-outline-success">

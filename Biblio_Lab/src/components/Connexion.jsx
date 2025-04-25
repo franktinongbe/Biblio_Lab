@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {jwtDecode} from 'jwt-decode';
+
+import axios from "../services/CallApi"; 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Connexion = () => {
@@ -8,7 +11,7 @@ const Connexion = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!username || !password) {
@@ -16,10 +19,28 @@ const Connexion = () => {
       return;
     }
 
-    // Simule une connexion réussie (sans back-end)
-    setError('');
-    localStorage.setItem('fakeToken', '123456'); // juste pour simuler
-    navigate('/accueil');
+    try {
+      const res = await axios.post('/auth/login', { username, password });
+      const { token } = res.data;
+
+      localStorage.setItem('token', token);
+
+      // Décoder le token pour récupérer le rôle
+      const decoded = jwtDecode(token);
+      const role = decoded?.role;
+
+      if (role === 'admin') {
+        navigate('/admin');
+      } else {
+        navigate('/accueil');
+      }
+
+    } catch (err) {
+      setError(
+        err.response?.data?.msg ||
+        "Une erreur s'est produite lors de la connexion."
+      );
+    }
   };
 
   return (
@@ -61,7 +82,7 @@ const Connexion = () => {
           </form>
 
           <div className="mt-3 text-center">
-            <p className="mb-0">Pas de compte ? <a href="/Log in">S'inscrire</a></p>
+            <p className="mb-0">Pas de compte ? <a href="/inscription">S'inscrire</a></p>
           </div>
         </div>
       </div>

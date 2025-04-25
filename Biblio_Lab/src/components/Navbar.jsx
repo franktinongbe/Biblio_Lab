@@ -65,7 +65,7 @@ function Navbar() {
             </button>
           </div>
           <nav className="d-flex flex-column gap-3 mt-4">
-            <Link className="text-white text-decoration-none" to="/">Accueil</Link>
+            <Link className="text-white text-decoration-none" to="/accueil">Accueil</Link>
             <Link className="text-white text-decoration-none" to="/library">Bibliothèques</Link>
             <Link className="text-white text-decoration-none" to="/library1">Bibliothèque 1</Link>
             <Link className="text-white text-decoration-none" to="/library2">Bibliothèque 2</Link>
