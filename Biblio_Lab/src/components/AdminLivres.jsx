@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../services/CallApi"; 
+import instance from "../services/CallApi";
 import { Form, Button, Table, Modal } from "react-bootstrap";
 
 function AdminLivres() {
@@ -21,7 +21,7 @@ function AdminLivres() {
 
   const fetchLivres = async () => {
     try {
-      const res = await axios.get("/books");
+      const res = await instance.get("/books");
       setLivres(res.data);
     } catch (error) {
       console.error("Erreur fetch:", error);
@@ -39,17 +39,32 @@ function AdminLivres() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Vous devez être connecté en tant qu'admin.");
+      return;
+    }
+
     const form = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       if (value) form.append(key, value);
     });
 
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    };
+
     try {
       if (editId) {
-        await axios.put(`/books/${editId}`, formData);
+        await instance.put(`/books/${editId}`, form, config);
       } else {
-        await axios.post("/books/upload", form);
+        await instance.post("/books/upload", form, config);
       }
+
       setFormData({
         title: "",
         summary: "",
@@ -80,13 +95,23 @@ function AdminLivres() {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Supprimer ce livre ?")) {
-      try {
-        await axios.delete(`/books/${id}`);
-        fetchLivres();
-      } catch (error) {
-        console.error("Erreur suppression:", error);
-      }
+    if (!window.confirm("Supprimer ce livre ?")) return;
+
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("Vous devez être connecté.");
+      return;
+    }
+
+    try {
+      await instance.delete(`/books/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      fetchLivres();
+    } catch (error) {
+      console.error("Erreur suppression:", error);
     }
   };
 
@@ -155,7 +180,9 @@ function AdminLivres() {
                 </Form.Group>
               </>
             )}
-            <Button type="submit" className="mt-3">{editId ? "Enregistrer" : "Ajouter"}</Button>
+            <Button type="submit" className="mt-3">
+              {editId ? "Enregistrer" : "Ajouter"}
+            </Button>
           </Form>
         </Modal.Body>
       </Modal>
