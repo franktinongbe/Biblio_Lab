@@ -17,6 +17,8 @@ function Inscription() {
     password: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -32,16 +34,22 @@ function Inscription() {
     }
 
     try {
+      setIsSubmitting(true);
+
       await axios.post("/auth/register", { ...formData, role: "utilisateur" });
+
       toast.success("Inscription réussie ! Redirection...");
       setTimeout(() => {
         navigate("/accueil");
       }, 2000);
     } catch (err) {
+      console.error(err); // pour t'aider à debugger
       toast.error(
         err.response?.data?.msg ||
         "Erreur lors de l'inscription. Veuillez réessayer."
       );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -78,6 +86,7 @@ function Inscription() {
           <button
             type="submit"
             className="btn w-100 mt-3"
+            disabled={isSubmitting}
             style={{
               background: 'linear-gradient(to right, #fd7e14, rgb(53, 82, 248))',
               color: 'white',
@@ -86,18 +95,24 @@ function Inscription() {
               borderRadius: '30px',
               padding: '12px',
               fontSize: '1rem',
+              opacity: isSubmitting ? 0.7 : 1,
+              cursor: isSubmitting ? "not-allowed" : "pointer",
               transition: 'transform 0.2s ease, box-shadow 0.3s ease',
             }}
             onMouseOver={(e) => {
-              e.target.style.transform = 'scale(1.05)';
-              e.target.style.boxShadow = '0 8px 15px rgba(238, 9, 121, 0.4)';
+              if (!isSubmitting) {
+                e.target.style.transform = 'scale(1.05)';
+                e.target.style.boxShadow = '0 8px 15px rgba(238, 9, 121, 0.4)';
+              }
             }}
             onMouseOut={(e) => {
-              e.target.style.transform = 'scale(1)';
-              e.target.style.boxShadow = 'none';
+              if (!isSubmitting) {
+                e.target.style.transform = 'scale(1)';
+                e.target.style.boxShadow = 'none';
+              }
             }}
           >
-            S'inscrire
+            {isSubmitting ? "Inscription..." : "S'inscrire"}
           </button>
         </form>
       </div>

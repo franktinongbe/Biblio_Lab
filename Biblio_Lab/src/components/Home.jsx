@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Book } from 'react-bootstrap-icons'; // Assure-toi d'avoir installé react-bootstrap-icons
+import { Book } from 'react-bootstrap-icons';
+
 
 // Ajout dynamique de la police Montserrat et styles animés
 const montserratFont = document.createElement('link');
