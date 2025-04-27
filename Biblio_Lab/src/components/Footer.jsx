@@ -32,7 +32,7 @@ function Footer() {
             {["Accueil", "Bibliothèques", "Infos", "Inscription", "Connexion"].map((text, idx) => (
               <Link
                 key={idx}
-                to={`/${text === "Accueil" ? "" : text.toLowerCase().replace(" ", "")}`}
+                to={`/accueil${text === "Accueil" ? "" : text.toLowerCase().replace(" ", "")}`}
                 className="text-white mb-2 text-decoration-none"
                 style={{ transition: '0.3s ease-in-out' }}
                 onMouseEnter={(e) => (e.target.style.textDecoration = 'underline')}
