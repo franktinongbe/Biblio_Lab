@@ -1,8 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Accueil from "./components/Accueil";
+import ContactezNous from "./components/Contact";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Infos from "./components/Infos";
 import Bibliothèques from "./components/bibliothèques/Bibliothèques";
 import Connexion from "./components/Connexion";
@@ -20,7 +23,7 @@ import RouteAdmin from "./components/RouteAdmin";
 // Layout avec Navbar et Footer
 const Layout = ({ children }) => {
   const location = useLocation();
-  const noNavbarPaths = ["/", "/Sign in", "/Log in"]; // sans Navbar
+  const noNavbarPaths = ["/"]; // seule la page d'accueil n'affiche pas la navbar
 
   return (
     <div className="d-flex flex-column min-vh-100" style={{ fontFamily: 'Montserrat, sans-serif' }}>
@@ -35,12 +38,13 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Pages sans Navbar (pas de Layout) */}
+        {/* Page d'accueil sans Navbar */}
         <Route path="/" element={<Home />} />
-        <Route path="/Sign in" element={<Connexion />} />
-        <Route path="/Log in" element={<Inscription />} />
 
         {/* Pages avec Navbar via Layout */}
+        <Route path="/Sign in" element={<Layout><Connexion /></Layout>} />
+        <Route path="/Contactez-nous" element={<ContactezNous />} />
+        <Route path="/Log in" element={<Layout><Inscription /></Layout>} />
         <Route path="/accueil" element={<Layout><Accueil /></Layout>} />
         <Route path="/library" element={<Layout><Bibliothèques /></Layout>} />
         <Route path="/library1" element={<Layout><Bibliothèque1 /></Layout>} />

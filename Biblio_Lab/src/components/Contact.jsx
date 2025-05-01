@@ -1,55 +1,105 @@
 import React from 'react';
+import { FaEnvelope, FaUser, FaCommentDots } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom'; // 👉 Ajout
 
-const ContactezNous = () => {
+function ContactezNous() {
+  const navigate = useNavigate(); // 👉 Initialisation
+
+  const handleRetour = () => {
+    navigate(-1); // ou navigate("/accueil") pour aller à la page d'accueil
+  };
+
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Contactez-nous</h1>
-      
-      <div className="row">
-        {/* Formulaire de contact */}
-        <div className="col-md-6">
-          <form>
-            <div className="mb-3">
-              <label htmlFor="nom" className="form-label">Nom</label>
-              <input type="text" className="form-control" id="nom" required />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">Email</label>
-              <input type="email" className="form-control" id="email" required />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="sujet" className="form-label">Sujet</label>
-              <input type="text" className="form-control" id="sujet" />
-            </div>
-            <div className="mb-3">
-              <label htmlFor="message" className="form-label">Message</label>
-              <textarea className="form-control" id="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">Envoyer</button>
-          </form>
-        </div>
+    <div
+      className="py-5"
+      style={{
+        background: 'linear-gradient(135deg, #D4E6F1 0%, #F2F3F4 100%)',
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div
+        className="card shadow p-4"
+        style={{
+          maxWidth: '600px',
+          width: '100%',
+          background: 'white',
+          borderRadius: '20px',
+          border: '1px solid #D5D8DC',
+        }}
+      >
+        {/* 🔙 Bouton Retour */}
+        <button
+          onClick={handleRetour}
+          className="btn btn-outline-secondary mb-3"
+          style={{ width: 'fit-content' }}
+        >
+          ← Retour
+        </button>
 
-        {/* Informations de contact */}
-        <div className="col-md-6">
-          <h4>Nos coordonnées</h4>
-          <p><strong>Adresse :</strong> 123 Rue des Bibliothèues, 125 Parakou</p>
-          <p><strong>Email :</strong> contact@biblio-lab.fr</p>
-          <p><strong>Téléphone :</strong> +229 01 40 34 19 69</p>
-          <p><strong>Horaires :</strong> Lundi - Vendredi : 9h00 - 18h00</p>
-          
-          {/* (Optionnel) Carte Google Maps */}
-          { <iframe 
-            src="https://www.google.com/maps/embed?..." 
-            width="100%" 
-            height="250" 
-            style={{ border: 0 }} 
-            allowFullScreen="" 
-            loading="lazy"
-          ></iframe> }
-        </div>
+        <h2 className="mb-3 text-center" style={{ color: '#2E4053' }}>
+          Contactez-nous
+        </h2>
+        <p className="text-center" style={{ color: '#5D6D7E' }}>
+          N'hésitez pas à nous écrire, nous vous répondrons rapidement.
+        </p>
+
+        <form>
+          <div className="mb-3">
+            <label className="form-label" style={{ color: '#2E4053' }}>
+              <FaUser className="me-2" />
+              Nom
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Votre nom"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label" style={{ color: '#2E4053' }}>
+              <FaEnvelope className="me-2" />
+              Email
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Votre email"
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label" style={{ color: '#2E4053' }}>
+              <FaCommentDots className="me-2" />
+              Message
+            </label>
+            <textarea
+              className="form-control"
+              rows="5"
+              placeholder="Votre message"
+            />
+          </div>
+
+          <div className="d-grid">
+            <button
+              type="submit"
+              className="btn" 
+              style={{
+                background: 'linear-gradient(to right, #2E4053, #566573)',
+                color: '#fff',
+                border: 'none',
+              }}
+            >
+              Envoyer le message
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
-};
+}
 
 export default ContactezNous;

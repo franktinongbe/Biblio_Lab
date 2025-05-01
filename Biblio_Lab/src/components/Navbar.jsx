@@ -28,6 +28,16 @@ function Navbar() {
     return () => mediaQuery.removeEventListener("change", handleResize);
   }, []);
 
+  const linkStyle = {
+    fontFamily: "Montserrat",
+    backgroundColor: "black",
+    textDecoration: "none",
+    fontSize: "1.2rem",
+    color: "white",
+    padding: "0.5rem 1rem",
+    borderRadius: "0.5rem"
+  };
+
   return (
     <>
       {isMobile && (
@@ -67,10 +77,6 @@ function Navbar() {
           <nav className="d-flex flex-column gap-3 mt-4">
             <Link className="text-white text-decoration-none" to="/accueil">Accueil</Link>
             <Link className="text-white text-decoration-none" to="/library">Bibliothèques</Link>
-            <Link className="text-white text-decoration-none" to="/library1">Bibliothèque 1</Link>
-            <Link className="text-white text-decoration-none" to="/library2">Bibliothèque 2</Link>
-            <Link className="text-white text-decoration-none" to="/library3">Bibliothèque 3</Link>
-            <Link className="text-white text-decoration-none" to="/library4">Bibliothèque 4</Link>
             <Link className="text-white text-decoration-none" to="/Sign in">Inscription</Link>
             <Link className="text-white text-decoration-none" to="/Log in">Connexion</Link>
             <Link className="text-white text-decoration-none" to="/about">Infos</Link>
@@ -93,27 +99,32 @@ function Navbar() {
         <img src="images/logo.png" alt="Logo" style={{ maxWidth: "200px", maxHeight: "300px" }} />
 
         {!isMobile && (
-          <nav className="d-flex gap-4">
-            <Link className="text-white px-3 py-1 rounded" style={{ fontFamily: "Monsterat", backgroundColor: 'black', textDecoration: "none", fontSize: "1.2rem" }} to="/accueil">Accueil</Link>
+          <nav className="d-flex gap-4 align-items-center">
+            <Link style={linkStyle} to="/accueil">Accueil</Link>
 
+            {/* Un seul dropdown pour les bibliothèques */}
             <ButtonGroup>
-              <Link to="/library" className="btn text-white" style={{ backgroundColor: 'black', fontFamily: "Monsterat", fontSize: "1.2rem", borderTopLeftRadius: "0.5rem", borderBottomLeftRadius: "0.5rem", padding: "0.5rem 1rem", textDecoration: "none" }}>Bibliothèques</Link>
+  <Link to="/library" style={linkStyle}>
+    Bibliothèques
+  </Link>
+  <DropdownButton
+    as={ButtonGroup}
+    id="dropdown-split"
+    variant="dark"
+    title="▼"
+    style={{ ...linkStyle, borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
+    menuVariant="dark"
+  >
+    <Dropdown.Item as={Link} to="/library1">Bibliothèque 1</Dropdown.Item>
+    <Dropdown.Item as={Link} to="/library2">Bibliothèque 2</Dropdown.Item>
+    <Dropdown.Item as={Link} to="/library3">Bibliothèque 3</Dropdown.Item>
+    <Dropdown.Item as={Link} to="/library4">Bibliothèque 4</Dropdown.Item>
+  </DropdownButton>
+</ButtonGroup>
 
-              <DropdownButton
-                as={ButtonGroup}
-                id="dropdown-split"
-                variant="info"
-                style={{ borderTopRightRadius: "0.5rem", borderBottomRightRadius: "0.5rem", backgroundColor: '#2d9cdb' }}
-                menuVariant="dark"
-              >
-                <Dropdown.Item as={Link} to="/library1">Bibliothèque 1</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/library2">Bibliothèque 2</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/library3">Bibliothèque 3</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/library4">Bibliothèque 4</Dropdown.Item>
-              </DropdownButton>
-            </ButtonGroup>
 
-            <Link className="text-white px-3 py-1 rounded" style={{ fontFamily: "Monsterat", backgroundColor: 'black', textDecoration: "none", fontSize: "1.2rem" }} to="/about">Infos</Link>
+            <Link style={linkStyle} to="/about">Infos</Link>
+            <Link style={linkStyle} to="/Sign in">Connexion</Link>
           </nav>
         )}
       </header>
