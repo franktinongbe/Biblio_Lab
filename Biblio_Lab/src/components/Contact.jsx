@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaEnvelope, FaUser, FaCommentDots } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
 function ContactezNous() {
   const navigate = useNavigate();
+  const [messageEnvoye, setMessageEnvoye] = useState(false);
 
   const handleRetour = () => {
-    navigate(-1); // ou navigate("/accueil")
+    navigate(-1);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setMessageEnvoye(true);
+    e.target.reset(); // optionnel : pour vider le formulaire
+    // Tu peux aussi ajouter ici une requête API plus tard si besoin
   };
 
   return (
     <div
       className="py-5"
       style={{
-        background: 'linear-gradient(135deg, #f2994a 0%, #2d9cdb 100%)', // ✅ Nouveau dégradé
+        background: 'linear-gradient(135deg, #f2994a 0%, #2d9cdb 100%)',
         minHeight: '100vh',
         display: 'flex',
         justifyContent: 'center',
@@ -30,7 +38,6 @@ function ContactezNous() {
           border: '1px solid #D5D8DC',
         }}
       >
-        {/* 🔙 Bouton Retour */}
         <button
           onClick={handleRetour}
           className="btn btn-outline-secondary mb-3"
@@ -46,13 +53,19 @@ function ContactezNous() {
           N'hésitez pas à nous écrire, nous vous répondrons rapidement.
         </p>
 
-        <form>
+        {messageEnvoye && (
+          <div className="alert alert-success text-center">
+            ✅ Votre message a été envoyé avec succès !
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="form-label" style={{ color: '#2E4053' }}>
               <FaUser className="me-2" />
               Nom
             </label>
-            <input type="text" className="form-control" placeholder="Votre nom" />
+            <input type="text" className="form-control" placeholder="Votre nom" required />
           </div>
 
           <div className="mb-3">
@@ -60,7 +73,7 @@ function ContactezNous() {
               <FaEnvelope className="me-2" />
               Email
             </label>
-            <input type="email" className="form-control" placeholder="Votre email" />
+            <input type="email" className="form-control" placeholder="Votre email" required />
           </div>
 
           <div className="mb-3">
@@ -68,7 +81,7 @@ function ContactezNous() {
               <FaCommentDots className="me-2" />
               Message
             </label>
-            <textarea className="form-control" rows="5" placeholder="Votre message" />
+            <textarea className="form-control" rows="5" placeholder="Votre message" required />
           </div>
 
           <div className="d-grid">
