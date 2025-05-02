@@ -1,19 +1,19 @@
 import React from 'react';
 import { FaEnvelope, FaUser, FaCommentDots } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom'; // 👉 Ajout
+import { useNavigate } from 'react-router-dom';
 
 function ContactezNous() {
-  const navigate = useNavigate(); // 👉 Initialisation
+  const navigate = useNavigate();
 
   const handleRetour = () => {
-    navigate(-1); // ou navigate("/accueil") pour aller à la page d'accueil
+    navigate(-1); // ou navigate("/accueil")
   };
 
   return (
     <div
       className="py-5"
       style={{
-        background: 'linear-gradient(135deg, #D4E6F1 0%, #F2F3F4 100%)',
+        background: 'linear-gradient(135deg, #f2994a 0%, #2d9cdb 100%)', // ✅ Nouveau dégradé
         minHeight: '100vh',
         display: 'flex',
         justifyContent: 'center',
@@ -52,11 +52,7 @@ function ContactezNous() {
               <FaUser className="me-2" />
               Nom
             </label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Votre nom"
-            />
+            <input type="text" className="form-control" placeholder="Votre nom" />
           </div>
 
           <div className="mb-3">
@@ -64,11 +60,7 @@ function ContactezNous() {
               <FaEnvelope className="me-2" />
               Email
             </label>
-            <input
-              type="email"
-              className="form-control"
-              placeholder="Votre email"
-            />
+            <input type="email" className="form-control" placeholder="Votre email" />
           </div>
 
           <div className="mb-3">
@@ -76,17 +68,13 @@ function ContactezNous() {
               <FaCommentDots className="me-2" />
               Message
             </label>
-            <textarea
-              className="form-control"
-              rows="5"
-              placeholder="Votre message"
-            />
+            <textarea className="form-control" rows="5" placeholder="Votre message" />
           </div>
 
           <div className="d-grid">
             <button
               type="submit"
-              className="btn" 
+              className="btn"
               style={{
                 background: 'linear-gradient(to right, #2E4053, #566573)',
                 color: '#fff',
