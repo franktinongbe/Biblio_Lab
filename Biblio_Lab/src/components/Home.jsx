@@ -146,7 +146,7 @@ const Home = () => {
                     <hr className="my-4 border-white opacity-25" />
                     <div className="d-flex gap-4">
                       <div className="text-center">
-                        <h3 className="fw-bold mb-0">+10k</h3>
+                        <h3 className="fw-bold mb-0">+50k</h3>
                         <small className="opacity-50">Ouvrages</small>
                       </div>
                       <div className="text-center">
