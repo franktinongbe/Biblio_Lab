@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
-function Bibliothèque1() {
+function PortoNovo1() {
   const [livres, setLivres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [erreur, setErreur] = useState("");
@@ -44,7 +44,7 @@ function Bibliothèque1() {
   return (
     <div className="container py-5">
       <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque 1</h1>
+        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque CAEB Porto-Novo Siège</h1>
         <p className="lead text-muted">
           Un lieu moderne dédié au savoir et à la créativité.
         </p>
@@ -118,4 +118,4 @@ function Bibliothèque1() {
   );
 }
 
-export default Bibliothèque1;
+export default PortoNovo1;

@@ -14,36 +14,63 @@ function Bibliothèques() {
   const [nouveauCommentaire, setNouveauCommentaire] = useState("");
 
   const libraries = [
-    {
-      id: 1,
-      name: "Bibliothèque1",
-      image: "https://cdn.pixabay.com/photo/2015/09/05/21/51/library-925589_1280.jpg",
-      description: "Une collection moderne avec un espace numérique dynamique.",
-      path: "/library1",
-    },
-    {
-      id: 2,
-      name: "Bibliothèque2",
-      image: "https://i.pinimg.com/736x/d4/08/d8/d408d8f291dbd85577e86f92e489c3cd.jpg",
-      description: "Un lieu calme et propice à la lecture et à l’étude.",
-      path: "/library2",
-    },
-    {
-      id: 3,
-      name: "Bibliothèque3",
-      image: "https://i.pinimg.com/736x/9e/e9/7a/9ee97a452c19ed21ab50ef1ccf21db0d.jpg",
-      description: "Une bibliothèque axée sur les archives et documents anciens.",
-      path: "/library3",
-    },
-    {
-      id: 4,
-      name: "Bibliothèque4",
-      image: "https://i.pinimg.com/736x/c4/80/72/c48072fb052948204f3a6312a427586e.jpg",
-      description: "Un espace jeune public rempli de romans, BD et animations.",
-      path: "/library4",
-    },
-  ];
-
+  {
+    id: 1,
+    name: "PortoNovo1",
+    image: "/images/porto1.jpg", // Chemin relatif au dossier public
+    description: "Une collection moderne avec un espace numérique dynamique.",
+    path: "/library1",
+  },
+  {
+    id: 2,
+    name: "PortoNovo2",
+    image: "/images/attakè.jpg",
+    description: "Un lieu calme et propice à la lecture et à l’étude.",
+    path: "/library2",
+  },
+  {
+    id: 3,
+    name: "Parakou Zongo",
+    image: "/images/parakou..jpg",
+    description: "Une bibliothèque axée sur les archives et documents anciens.",
+    path: "/library3",
+  },
+  {
+    id: 4,
+    name: "Parakou FM UP",
+    image: "/images/up.jpg",
+    description: "Un espace jeune public rempli de romans, BD et animations.",
+    path: "/library4",
+  },
+  {
+    id: 5,
+    name: "Natitingou",
+    image: "/images/titingou.jpg",
+    description: "Une bibliothèque moderne avec des espaces de travail collaboratif.",
+    path: "/library5",
+  },
+  {
+    id: 6,
+    name: "Abomey",
+    image: "/images/abomey.jpg",
+    description: "Une bibliothèque moderne avec des espaces de travail collaboratif.",
+    path: "/library6",
+  },
+  {
+    id: 7,
+    name: "Lokossa",
+    image: "/images/kossalo.jpg",
+    description: "Un espace jeune public rempli de romans, BD et animations.",
+    path: "/library7",
+  },
+  {
+    id: 8,
+    name: "Djougou",
+    image: "/images/djougou.jpg",
+    description: "Un espace jeune public rempli de romans, BD et animations.",
+    path: "/library8",
+  },
+];
   const handleCommentSubmit = (e) => {
     e.preventDefault();
     if (nom.trim() && nouveauCommentaire.trim()) {

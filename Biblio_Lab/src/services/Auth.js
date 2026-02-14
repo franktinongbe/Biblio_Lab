@@ -13,7 +13,7 @@ export function getUserFromToken() {
   try {
     const user = jwtDecode(token);
     return user;
-  } catch (e) {
+  } catch {
     return null;
   }
 }

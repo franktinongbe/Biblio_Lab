@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Parakou_Zongo() {
+function Lokossa() {
   const programme = [
     { jour: "Lundi", activité: "Atelier d'écriture" },
     { jour: "Mercredi", activité: "Heure du conte pour enfants" },
@@ -38,7 +38,7 @@ function Parakou_Zongo() {
     <div className="container py-5">
       {/* Hero */}
       <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque CAEB Parakou Zongo</h1>
+        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque CAEB Lokossa</h1>
         <p className="lead text-muted">
           Un lieu moderne dédié au savoir et à la créativité.
         </p>
@@ -93,7 +93,7 @@ function Parakou_Zongo() {
         </div>
 
         <div className="text-end mt-4">
-          <Link to="/library3/books" className="btn btn-outline-success">
+          <Link to="/library4/books" className="btn btn-outline-success">
             Voir tous les livres →
           </Link>
         </div>
@@ -102,4 +102,4 @@ function Parakou_Zongo() {
   );
 }
 
-export default Parakou_Zongo;
+export default Lokossa;

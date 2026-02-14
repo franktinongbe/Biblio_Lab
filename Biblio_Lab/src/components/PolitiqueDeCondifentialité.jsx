@@ -8,7 +8,7 @@ function PolitiqueDeConfidentialité() {
       <section className="mb-4">
         <h4><strong>Introduction</strong></h4>
         <p>
-          Chez Bibliolab, la protection de vos données personnelles est une priorité. Cette politique de confidentialité vous informe en toute transparence sur la manière dont nous collectons, utilisons, conservons et protégeons vos informations personnelles lorsque vous utilisez notre site web et nos services associés. Nous vous invitons à lire attentivement ce document afin de comprendre vos droits et nos engagements en matière de confidentialité.
+          Chez Bibliothèque de CAEB, la protection de vos données personnelles est une priorité. Cette politique de confidentialité vous informe en toute transparence sur la manière dont nous collectons, utilisons, conservons et protégeons vos informations personnelles lorsque vous utilisez notre site web et nos services associés. Nous vous invitons à lire attentivement ce document afin de comprendre vos droits et nos engagements en matière de confidentialité.
         </p>
       </section>
 
@@ -57,9 +57,9 @@ function PolitiqueDeConfidentialité() {
       <section className="mb-4">
         <h4><strong>Contact</strong></h4>
         <p>
-          Pour toute question concernant cette politique de confidentialité ou pour faire valoir vos droits, vous pouvez nous contacter à l’adresse suivante : <a href="mailto:contact@bibliolab.com">contact@bibliolab.com</a>. Nous sommes à votre écoute et veillons à traiter vos demandes avec diligence et sérieux.
+          Pour toute question concernant cette politique de confidentialité ou pour faire valoir vos droits, vous pouvez nous contacter à l’adresse suivante : <a href="mailto:contact@caeb-benin.com">caeb@caeb-benin.com</a>. Nous sommes à votre écoute et veillons à traiter vos demandes avec diligence et sérieux.
         </p>
-        <p><small className="text-muted">Dernière mise à jour : Avril 2025</small></p>
+        <p><small className="text-muted">Dernière mise à jour : février 2026</small></p>
       </section>
     </div>
   );

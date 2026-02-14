@@ -7,7 +7,7 @@ function Infos() {
   return (
     <div className="container my-5">
       <h1 className="text-center mb-4">À propos de nous</h1>
-      <p>Bienvenue sur Biblio-Lab, la plateforme idéale pour découvrir de nouveaux livres et explorer du contenu éducatif. Notre mission est de rendre la connaissance accessible à tous, peu importe l'origine ou l'emplacement.</p>
+      <p>Bienvenue sur Bibliothèque CAEB, la plateforme idéale pour découvrir de nouveaux livres et explorer du contenu éducatif. Notre mission est de rendre la connaissance accessible à tous, peu importe l'origine ou l'emplacement.</p>
 
       <h2 className="mt-4">Notre Mission</h2>
       <p>Notre mission est de favoriser une communauté mondiale d'apprenants, où les livres et le contenu éducatif sont accessibles à toute personne cherchant à acquérir des connaissances.</p>
@@ -29,13 +29,13 @@ function Infos() {
       </ul>
 
       <h2 className="mt-4">Notre Histoire</h2>
-      <p>Biblio-Lab a commencé en tant que projet passion en 2025 avec l'objectif de créer une plateforme facile à utiliser et fiable pour les lecteurs du monde entier.</p>
+      <p>Bibliothèque CAEB a commencé en tant que projet passion en 1935 avec l'objectif de créer un accès à la documentation facile et fiable pour les lecteurs et apprenants de la nation Béninoise.</p>
 
       <h2 className="mt-4">Plans Futurs</h2>
-      <p>Nous travaillons constamment à améliorer Biblio-Lab. Restez à l'écoute pour des fonctionnalités telles que des applications mobiles, des livres audio, et bien plus encore !</p>
+      <p>Nous travaillons constamment à améliorer Bibliothèque CAEB. Restez à l'écoute pour des fonctionnalités telles que des applications mobiles, des livres audio, et bien plus encore !</p>
 
       <h2 className="mt-4">Contactez-nous</h2>
-      <p>Vous avez des questions ou des retours ? Contactez-nous à <a href="mailto:contact@bibliolab.com">contact@bibliolab.com</a></p>
+      <p>Vous avez des questions ou des retours ? Contactez-nous à <a href="mailto:caeb@caeb.com">contact@bibliolab.com</a></p>
 
       <div className="text-center mt-4">
         <button

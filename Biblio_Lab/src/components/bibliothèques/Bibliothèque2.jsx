@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Bibliothèque2() {
+function PortoNovo2() {
   const programme = [
     { jour: "Mardi", activité: "Atelier de lecture" },
     { jour: "Jeudi", activité: "Heure du poésir pour enfants" },
@@ -38,7 +38,7 @@ function Bibliothèque2() {
     <div className="container py-5">
       {/* Hero */}
       <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque 2</h1>
+        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque CAEB Porto-Novo Attakè</h1>
         <p className="lead text-muted">
           Un lieu moderne dédié au savoir et à la créativité.
         </p>
@@ -102,4 +102,4 @@ function Bibliothèque2() {
   );
 }
 
-export default Bibliothèque2;
+export default PortoNovo2;
