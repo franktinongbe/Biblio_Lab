@@ -23,9 +23,9 @@ function Infos() {
       <p>Notre équipe est composée de passionnés de lecture et de développeurs qualifiés, engagés à faire de Biblio-Lab votre compagnon de confiance dans le monde des livres. Voici quelques membres de notre équipe :</p>
       <ul>
         <li><strong>Frank Tinongbé</strong> - Co-fondateur, Développeur</li>
-        <li><strong>Souleymane Takpara</strong> - Développeur</li>
+        {/* <li><strong>Souleymane Takpara</strong> - Développeur</li>
         <li><strong>Julianna Zadogli</strong> - Designer</li>
-        <li><strong>Okeke Gabriel</strong> - Développeur</li>
+        <li><strong>Okeke Gabriel</strong> - Développeur</li> */}
       </ul>
 
       <h2 className="mt-4">Notre Histoire</h2>
