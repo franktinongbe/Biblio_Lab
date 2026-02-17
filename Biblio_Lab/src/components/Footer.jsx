@@ -92,8 +92,7 @@ function Footer() {
                 { name: "Accueil", path: "/accueil" },
                 { name: "Bibliothèques", path: "/library" },
                 { name: "Infos & Valeurs", path: "/about" },
-                { name: "S'inscrire", path: "/Sign in" },
-                { name: "Se connecter", path: "/Log in" },
+                { name: "Catalogue", path: "/catalogue/:biblioId" },
                 { name: "FAQ", path: "/faq" }
               ].map((link, idx) => (
                 <li key={idx} className="mb-3">
