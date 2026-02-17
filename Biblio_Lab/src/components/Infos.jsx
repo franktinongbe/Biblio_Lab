@@ -18,13 +18,13 @@ function Infos() {
   // Liste complète des 8 responsables
   const responsables = [
     { name: "Responsable Porto 1", photo: "/images/resp1.jpg", biblio: "Porto-Novo 1", path: "/library1" },
-    { name: "Responsable Porto 2", photo: "/images/resp2.jpg", biblio: "Porto-Novo 2", path: "/library2" },
-    { name: "Responsable Parakou Z.", photo: "/images/resp3.jpg", biblio: "Parakou Zongo", path: "/library3" },
-    { name: "Responsable Parakou UP", photo: "/images/resp4.jpg", biblio: "Parakou FM UP", path: "/library4" },
+    { name: "Narcisse NOUMONVI", photo: "/images/resp2.jpg", biblio: "Porto-Novo 2", path: "/library2" },
+    { name: "Francel S. LOKO", photo: "/images/resp3.jpg", biblio: "Parakou Zongo", path: "/library3" },
+    { name: "Dieudonné YOVO", photo: "/images/resp4.jpg", biblio: "Parakou FM UP", path: "/library4" },
     { name: "Responsable Natitingou", photo: "/images/resp5.jpg", biblio: "Natitingou", path: "/library5" },
-    { name: "Responsable Abomey", photo: "/images/resp6.jpg", biblio: "Abomey", path: "/library6" },
+    { name: "Romain OKE", photo: "/images/resp6.jpg", biblio: "Abomey", path: "/library6" },
     { name: "Responsable Lokossa", photo: "/images/resp7.jpg", biblio: "Lokossa", path: "/library7" },
-    { name: "Responsable Djougou", photo: "/images/resp8.jpg", biblio: "Djougou", path: "/library8" },
+    { name: "Ahmid ACHIMI", photo: "/images/resp8.jpg", biblio: "Djougou", path: "/library8" },
   ];
 
   return (
@@ -114,7 +114,7 @@ function Infos() {
           <Col md={8} className="p-5">
             <h6 className="text-uppercase fw-bold" style={{ color: caebOrange, letterSpacing: '2px' }}>Direction Exécutive</h6>
             <h2 className="display-6 fw-bold mb-3" style={{ color: caebBlue }}>M. Paul LOKO</h2>
-            <p className="lead text-muted">Directeur Exécutif du Réseau CAEB</p>
+            <p className="lead text-muted">Directeur Exécutif du CAEB</p>
             <p className="text-muted">
               Expert en Sociologie, il dirige l'organisation avec une vision humaniste, 
               plaçant l'inclusion numérique et l'accès à la lecture au cœur du développement communautaire.
