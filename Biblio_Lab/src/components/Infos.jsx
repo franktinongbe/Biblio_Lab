@@ -1,18 +1,31 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Col, Row, Container, Badge } from 'react-bootstrap'; // Correction : Ajout de Badge
+import { Col, Row, Container, Badge, Card, Image } from 'react-bootstrap'; 
 import { 
   HiOutlineRocketLaunch, 
   HiOutlineUserGroup, 
   HiOutlineClock, 
   HiOutlineLightBulb, 
-  HiOutlineSparkles 
+  HiOutlineSparkles,
+  HiOutlineArrowRight
 } from 'react-icons/hi2';
 
 function Infos() {
   const navigate = useNavigate();
   const caebBlue = "#1D4F9A";
   const caebOrange = "#f2994a";
+
+  // Liste complète des 8 responsables
+  const responsables = [
+    { name: "Responsable Porto 1", photo: "/images/resp1.jpg", biblio: "Porto-Novo 1", path: "/library1" },
+    { name: "Responsable Porto 2", photo: "/images/resp2.jpg", biblio: "Porto-Novo 2", path: "/library2" },
+    { name: "Responsable Parakou Z.", photo: "/images/resp3.jpg", biblio: "Parakou Zongo", path: "/library3" },
+    { name: "Responsable Parakou UP", photo: "/images/resp4.jpg", biblio: "Parakou FM UP", path: "/library4" },
+    { name: "Responsable Natitingou", photo: "/images/resp5.jpg", biblio: "Natitingou", path: "/library5" },
+    { name: "Responsable Abomey", photo: "/images/resp6.jpg", biblio: "Abomey", path: "/library6" },
+    { name: "Responsable Lokossa", photo: "/images/resp7.jpg", biblio: "Lokossa", path: "/library7" },
+    { name: "Responsable Djougou", photo: "/images/resp8.jpg", biblio: "Djougou", path: "/library8" },
+  ];
 
   return (
     <div style={{ backgroundColor: "#fcfcfc", fontFamily: "'Montserrat', sans-serif" }}>
@@ -23,66 +36,63 @@ function Infos() {
         padding: '100px 0', 
         color: 'white', 
         textAlign: 'center',
-        clipPath: 'polygon(0 0, 100% 0, 100% 90%, 0% 100%)',
+        clipPath: 'polygon(0 0, 100% 0, 100% 92%, 0% 100%)',
         marginBottom: '60px'
       }}>
         <Container>
-          {/* Badge fonctionne maintenant car il est importé */}
           <Badge bg="warning" text="dark" className="mb-3 px-3 py-2 rounded-pill">Depuis 1935</Badge>
           <h1 className="display-3 fw-bold mb-3">Bâtir l'avenir par le savoir</h1>
           <p className="lead mx-auto" style={{ maxWidth: '700px', opacity: 0.9 }}>
-            Le CAEB n'est pas qu'une bibliothèque, c'est un écosystème dédié à l'éveil intellectuel 
-            et à l'excellence éducative au Bénin.
+            Le CAEB est un écosystème dédié à l'éveil intellectuel et à l'excellence éducative au Bénin.
           </p>
         </Container>
       </div>
 
       {/* --- MISSION & HISTOIRE --- */}
       <Container className="mb-5">
-        <Row className="g-4">
+        <Row className="g-4 text-center text-md-start">
           <Col md={6}>
-            <div className="p-5 h-100 rounded-4 shadow-sm bg-white border-start border-5" style={{ borderColor: caebOrange }}>
+            <div className="p-5 h-100 rounded-4 shadow-sm bg-white border-bottom border-5" style={{ borderColor: caebOrange }}>
               <HiOutlineRocketLaunch size={40} className="mb-3" style={{ color: caebOrange }} />
               <h2 className="fw-bold" style={{ color: caebBlue }}>Notre Mission</h2>
-              <p className="text-muted">
-                Favoriser une communauté mondiale d'apprenants, où les livres et le contenu éducatif sont accessibles 
-                à toute personne cherchant à acquérir des connaissances.
-              </p>
+              <p className="text-muted">Favoriser une communauté mondiale d'apprenants, où les livres sont accessibles à tous.</p>
             </div>
           </Col>
           <Col md={6}>
-            <div className="p-5 h-100 rounded-4 shadow-sm bg-white border-start border-5" style={{ borderColor: caebBlue }}>
+            <div className="p-5 h-100 rounded-4 shadow-sm bg-white border-bottom border-5" style={{ borderColor: caebBlue }}>
               <HiOutlineClock size={40} className="mb-3" style={{ color: caebBlue }} />
               <h2 className="fw-bold" style={{ color: caebBlue }}>Notre Histoire</h2>
-              <p className="text-muted">
-                Ce qui a commencé en <strong>1935</strong> est devenu le pilier de la documentation 
-                nationale. Près d'un siècle d'engagement pour la nation Béninoise.
-              </p>
+              <p className="text-muted">Près d'un siècle d'engagement sans faille pour la culture et l'éducation de la nation Béninoise.</p>
             </div>
           </Col>
         </Row>
       </Container>
 
-      {/* --- FONCTIONNALITÉS --- */}
-      <div className="py-5" style={{ backgroundColor: '#f1f4f9' }}>
+      {/* --- SECTION : NOS RESPONSABLES (PHOTOS RONDES) --- */}
+      <div className="py-5" style={{ backgroundColor: '#f8f9fa' }}>
         <Container>
           <div className="text-center mb-5">
-            <h2 className="fw-bold" style={{ color: caebBlue }}>L'Expérience CAEB</h2>
+            <h2 className="display-5 fw-bold" style={{ color: caebBlue }}>Nos Responsables de Centres</h2>
+            <div style={{ width: '60px', height: '4px', backgroundColor: caebOrange, margin: '15px auto' }}></div>
           </div>
-          <Row className="text-center g-4">
-            {[
-              { icon: <HiOutlineSparkles />, title: "Diversité", text: "Une bibliothèque variée pour tous les âges." },
-              { icon: <HiOutlineLightBulb />, title: "Sur mesure", text: "Recommandations de lectures personnalisées." },
-              { icon: <HiOutlineUserGroup />, title: "Communauté", text: "Critiques et discussions passionnantes." }
-            ].map((f, i) => (
-              <Col key={i} md={4}>
-                <div className="p-4 rounded-4 hover-card transition-all" style={{ background: 'transparent' }}>
-                  <div className="mb-3 mx-auto shadow-sm d-flex align-items-center justify-content-center" 
-                       style={{ width: '70px', height: '70px', borderRadius: '20px', backgroundColor: 'white', color: caebOrange, fontSize: '2rem' }}>
-                    {f.icon}
+          <Row className="g-4">
+            {responsables.map((res, index) => (
+              <Col key={index} xs={6} md={4} lg={3}>
+                <div 
+                  className="text-center team-member-box p-3" 
+                  onClick={() => navigate(res.path)}
+                  style={{ cursor: 'pointer' }}
+                >
+                  <div className="mx-auto mb-3 circle-img-container shadow">
+                    <Image 
+                      src={res.photo} 
+                      roundedCircle 
+                      className="img-fluid team-photo"
+                      alt={res.name}
+                    />
                   </div>
-                  <h5 className="fw-bold">{f.title}</h5>
-                  <p className="small text-muted">{f.text}</p>
+                  <h6 className="fw-bold mb-1" style={{ color: caebBlue }}>{res.name}</h6>
+                  <Badge bg="white" text="muted" className="border small-badge">{res.biblio}</Badge>
                 </div>
               </Col>
             ))}
@@ -90,50 +100,61 @@ function Infos() {
         </Container>
       </div>
 
-      {/* --- ÉQUIPE --- */}
+      {/* --- ÉQUIPE DIRECTION (AVEC PHOTO DE) --- */}
       <Container className="py-5">
-        <Row className="align-items-center">
-          <Col lg={5} className="mb-4">
-            <h2 className="display-5 fw-bold" style={{ color: caebBlue }}>Rencontrez nos experts</h2>
-            <p className="text-muted">Engagés à faire des bibliothèques du CAEB votre compagnon de confiance.</p>
+        <Row className="align-items-center bg-white rounded-4 shadow-lg overflow-hidden g-0">
+          <Col md={4} className="text-center p-4">
+             <Image 
+                src="/images/paul_loko.jpg" // Remplace par le chemin réel du DE
+                roundedCircle 
+                className="shadow-sm mb-3"
+                style={{ width: '200px', height: '200px', objectFit: 'cover', border: `4px solid ${caebBlue}` }}
+             />
           </Col>
-          <Col lg={7}>
-            <div className="p-4 rounded-4 shadow-lg border-0 d-flex align-items-center bg-white" style={{ position: 'relative', overflow: 'hidden' }}>
-              <div style={{ 
-                position: 'absolute', top: 0, left: 0, width: '10px', height: '100%', backgroundColor: caebOrange 
-              }}></div>
-              <div className="ms-3">
-                <h4 className="fw-bold mb-1" style={{ color: caebBlue }}>M. Paul LOKO</h4>
-                <p className="text-uppercase small fw-bold text-muted mb-2">Directeur Exécutif</p>
-                <p className="mb-0 text-muted">Diplômé en Sociologie et Anthropologie, il dirige l'organisation avec une vision humaniste.</p>
-              </div>
-            </div>
+          <Col md={8} className="p-5">
+            <h6 className="text-uppercase fw-bold" style={{ color: caebOrange, letterSpacing: '2px' }}>Direction Exécutive</h6>
+            <h2 className="display-6 fw-bold mb-3" style={{ color: caebBlue }}>M. Paul LOKO</h2>
+            <p className="lead text-muted">Directeur Exécutif du Réseau CAEB</p>
+            <p className="text-muted">
+              Expert en Sociologie, il dirige l'organisation avec une vision humaniste, 
+              plaçant l'inclusion numérique et l'accès à la lecture au cœur du développement communautaire.
+            </p>
           </Col>
         </Row>
       </Container>
 
-      {/* --- CTA FINAL --- */}
-      <div className="py-5 text-center mt-4" style={{ background: '#fff' }}>
-        <Container className="p-5 rounded-5 shadow-sm" style={{ border: `2px dashed ${caebBlue}20` }}>
-          <h2 className="fw-bold mb-4" style={{ color: caebBlue }}>Prêt à explorer notre univers ?</h2>
-          <button
-            onClick={() => navigate("/library")}
-            className="btn btn-lg px-5 py-3 rounded-pill shadow-lg text-white"
-            style={{ backgroundColor: caebOrange, border: 'none', fontWeight: 'bold' }}
-          >
-            Rejoignez-nous aujourd'hui !
-          </button>
-        </Container>
-      </div>
-
+      {/* --- STYLE --- */}
       <style>{`
-        .hover-card:hover {
-          background-color: white !important;
-          transform: translateY(-10px);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        .circle-img-container {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          overflow: hidden;
+          border: 3px solid white;
+          transition: 0.3s ease;
         }
-        .transition-all {
-          transition: all 0.3s ease-in-out;
+        .team-photo {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+        .team-member-box:hover .circle-img-container {
+          border-color: ${caebOrange};
+          transform: translateY(-5px);
+        }
+        .team-member-box:hover .team-photo {
+          transform: scale(1.1);
+        }
+        .small-badge {
+          font-weight: 500;
+          font-size: 0.75rem;
+        }
+        @media (max-width: 576px) {
+          .circle-img-container {
+            width: 100px;
+            height: 100px;
+          }
         }
       `}</style>
     </div>

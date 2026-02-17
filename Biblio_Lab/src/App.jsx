@@ -49,7 +49,7 @@ function App() {
         {/* --- ROUTES PRINCIPALES --- */}
         <Route path="/accueil" element={<Layout><Accueil /></Layout>} />
         <Route path="/about" element={<Layout><Infos /></Layout>} />
-        <Route path="/Contactez-nous" element={<Layout><ContactezNous /></Layout>} />
+        <Route path="/contactez-nous" element={<Layout><ContactezNous /></Layout>} />
         
         {/* --- CATALOGUE ET LIVRES --- */}
         <Route path="/catalogue/:biblioId" element={<Layout><Catalogue /></Layout>} />

@@ -59,7 +59,7 @@ const FAQ = () => {
           <button 
             className="btn text-white fw-bold px-4" 
             style={{ backgroundColor: caebBlue }}
-            onClick={() => window.location.href = '/Contactez-nous'}
+            onClick={() => window.location.href = '/contactez-nous'}
           >
             Contactez notre équipe
           </button>
