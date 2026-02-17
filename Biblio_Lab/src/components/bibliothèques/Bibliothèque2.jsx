@@ -93,7 +93,7 @@ function PortoNovo2() {
         </div>
 
         <div className="text-end mt-4">
-          <Link to="/library2/books" className="btn btn-outline-success">
+          <Link to="/catalogue/library2" className="btn btn-outline-success">
             Voir tous les livres →
           </Link>
         </div>

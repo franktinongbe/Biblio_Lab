@@ -96,7 +96,7 @@ const Home = () => {
           {/* Côté Gauche : Texte Immersif */}
           <div className="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
             <div className="badge mb-3" style={{ background: 'rgba(255,255,255,0.2)', padding: '10px 20px', borderRadius: '20px' }}>
-              <HiOutlineLibrary className="me-2" /> ONG C.A.E.B.
+              <HiOutlineLibrary className="me-2" /> ONG CAEB.
             </div>
             <h1 className="display-2 hero-title mb-4">
               L'Avenir de la <br /> 
@@ -106,7 +106,7 @@ const Home = () => {
               Plongez dans un univers documentaire sans limites. Accédez à des milliers de ressources pour nourrir votre esprit.
             </p>
             <div className="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-lg-start">
-              <Link to="/Sign in" className="btn btn-caeb d-flex align-items-center justify-content-center gap-2 text-decoration-none">
+              <Link to="/accueil" className="btn btn-caeb d-flex align-items-center justify-content-center gap-2 text-decoration-none">
                 Commencer l'exploration <HiOutlineArrowRight />
               </Link>
             </div>
@@ -119,10 +119,10 @@ const Home = () => {
                 <img 
                   src="/images/logoc.png" 
                   alt="CAEB Logo" 
-                  style={{ width: '220px', filter: 'drop-shadow(0 10px 20px rgba(0,0,0,0.3))' }}
+                  style={{ width: '220px', filter: 'drop-shadow(0 10px 20px rgba(255, 255, 255, 0.3))' }}
                 />
                 <div className="mt-4">
-                  <h4 className="fw-bold mb-0">C.A.E.B.</h4>
+                  <h4 className="fw-bold mb-0">CAEB</h4>
                   <p className="small opacity-50 mb-0">Conseil des Activités Educatives du Bénin</p>
                 </div>
               </div>
@@ -150,7 +150,7 @@ const Home = () => {
                         <small className="opacity-50">Ouvrages</small>
                       </div>
                       <div className="text-center">
-                        <h3 className="fw-bold mb-0">24/7</h3>
+                        <h3 className="fw-bold mb-0">Du Lundi au Samedi de 8H à 18H</h3>
                         <small className="opacity-50">Accès</small>
                       </div>
                     </div>
@@ -175,7 +175,7 @@ const Home = () => {
       </section>
 
       <footer className="py-4 text-center opacity-50">
-        <p className="small">© {new Date().getFullYear()} Bibliothèque C.A.E.B. - Tous droits réservés.</p>
+        <p className="small">© {new Date().getFullYear()} Bibliothèque CAEB. - Tous droits réservés.</p>
       </footer>
     </div>
   );

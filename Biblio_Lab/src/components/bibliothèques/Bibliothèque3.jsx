@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Parakou_Zongo() {
   const programme = [
-    { jour: "Lundi", activité: "Atelier d'écriture" },
-    { jour: "Mercredi", activité: "Heure du conte pour enfants" },
-    { jour: "Vendredi", activité: "Projection documentaire" },
+    { jour: "Lundi au Samedi", activité: "Bibliothèque Ouverte (Consultation de livre surplace et possibilité de prêt à domicile)" },
+    { jour: "Vendredi", activité: "Vendredi Détente de 16H à 18H (animations culturelles jeux et concours)" },
+    { jour: "Samedi", activité: "Clubs d'animation: Danse de 15H à 18H; " },
   ];
 
   const actualites = [
@@ -93,7 +93,7 @@ function Parakou_Zongo() {
         </div>
 
         <div className="text-end mt-4">
-          <Link to="/library3/books" className="btn btn-outline-success">
+          <Link to="/catalogue/library3" className="btn btn-outline-success">
             Voir tous les livres →
           </Link>
         </div>

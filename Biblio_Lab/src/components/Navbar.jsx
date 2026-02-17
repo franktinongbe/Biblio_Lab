@@ -59,7 +59,7 @@ function Navbar() {
           
           {/* LOGO SECTION */}
           <div className="d-flex align-items-center">
-            <Link to="/accueil" className="text-decoration-none">
+            <Link to="/" className="text-decoration-none">
               <div className="logo-container"
                 style={{ 
                   backgroundColor: "white", 
@@ -79,7 +79,7 @@ function Navbar() {
             </Link>
             {!isMobile && (
               <div className="ms-3 text-white">
-                <h5 className="mb-0 fw-bold" style={{ letterSpacing: "1px" }}>C.A.E.B.</h5>
+                <h5 className="mb-0 fw-bold" style={{ letterSpacing: "1px" }}>CAEB</h5>
                 <small style={{ fontSize: "0.7rem", opacity: 0.8 }}>Réseau des Bibliothèques</small>
               </div>
             )}
@@ -90,6 +90,8 @@ function Navbar() {
             <nav className="d-flex align-items-center gap-3">
               <Link style={navLinkStyle("/accueil")} to="/accueil" className="nav-hover-effect">Accueil</Link>
               
+              <Link style={navLinkStyle("/about")} to="/about">Qui sommes-nous?</Link>
+
               <Dropdown as={ButtonGroup} className="custom-dropdown">
                 <Link to="/library" style={navLinkStyle("/library")}>Bibliothèques</Link>
                 <Dropdown.Toggle split variant="transparent" style={{ color: "white", border: "none" }} />
@@ -100,10 +102,9 @@ function Navbar() {
                 </Dropdown.Menu>
               </Dropdown>
 
-              <Link style={navLinkStyle("/about")} to="/about">Infos</Link>
               
               <Link 
-                to="/Sign in"
+                to="/newsletter"
                 className="btn ms-3 px-4 shadow-sm"
                 style={{ 
                   backgroundColor: caebOrange, 
@@ -116,7 +117,7 @@ function Navbar() {
                 onMouseOver={(e) => e.target.style.transform = "translateY(-3px)"}
                 onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
               >
-                Espace Membre
+                S'abonner
               </Link>
             </nav>
           ) : (

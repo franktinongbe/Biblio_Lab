@@ -93,7 +93,7 @@ function Lokossa() {
         </div>
 
         <div className="text-end mt-4">
-          <Link to="/library4/books" className="btn btn-outline-success">
+          <Link to="/catalogue/library7" className="btn btn-outline-success">
             Voir tous les livres →
           </Link>
         </div>

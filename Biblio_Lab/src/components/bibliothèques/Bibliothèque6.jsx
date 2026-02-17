@@ -93,7 +93,7 @@ function Abomey() {
         </div>
 
         <div className="text-end mt-4">
-          <Link to="/library4/books" className="btn btn-outline-success">
+          <Link to="/catalogue/library6" className="btn btn-outline-success">
             Voir tous les livres →
           </Link>
         </div>
