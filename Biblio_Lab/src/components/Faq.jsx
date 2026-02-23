@@ -9,7 +9,7 @@ const FAQ = () => {
   const faqData = [
     {
       q: "Comment s'inscrire à la bibliothèque ?",
-      a: "L'inscription se fait physiquement dans l'une de nos 8 bibliothèques. Vous devez fournir une photo d'identité, une pièce d'identité et vous acquitter des frais d'adhésion annuels."
+      a: "L'inscription se fait physiquement dans l'une de nos 8 bibliothèques. Vous devez fournir une photo d'identité du parent accompagnant l'apprenant, une pièce d'identité et vous acquitter des frais d'adhésion annuels (500F pour les écoliers, 1000F pour les élèves et 1500F pour les étudiants)."
     },
     {
       q: "Quelle est la durée maximale d'un prêt ?",

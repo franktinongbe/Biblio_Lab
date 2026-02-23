@@ -15,7 +15,6 @@ function Infos() {
   const caebBlue = "#1D4F9A";
   const caebOrange = "#f2994a";
 
-  // Liste complète des 8 responsables
   const responsables = [
     { name: "Responsable Porto 1", photo: "/images/resp1.jpg", biblio: "Porto-Novo 1", path: "/library1" },
     { name: "Narcisse NOUMONVI", photo: "/images/resp2.jpg", biblio: "Porto-Novo 2", path: "/library2" },
@@ -62,13 +61,13 @@ function Infos() {
             <div className="p-5 h-100 rounded-4 shadow-sm bg-white border-bottom border-5" style={{ borderColor: caebBlue }}>
               <HiOutlineClock size={40} className="mb-3" style={{ color: caebBlue }} />
               <h2 className="fw-bold" style={{ color: caebBlue }}>Notre Histoire</h2>
-              <p className="text-muted">Près d'un siècle d'engagement sans faille pour la culture et l'éducation de la nation Béninoise.</p>
+              <p className="text-muted">Près d'un siècle d'engagement sans faille pour la culture et l'éducation au Bénin.</p>
             </div>
           </Col>
         </Row>
       </Container>
 
-      {/* --- SECTION : NOS RESPONSABLES (PHOTOS RONDES) --- */}
+      {/* --- SECTION : NOS RESPONSABLES --- */}
       <div className="py-5" style={{ backgroundColor: '#f8f9fa' }}>
         <Container>
           <div className="text-center mb-5">
@@ -100,25 +99,47 @@ function Infos() {
         </Container>
       </div>
 
-      {/* --- ÉQUIPE DIRECTION (AVEC PHOTO DE) --- */}
+      {/* --- SECTION DIRECTION EXÉCUTIVE --- */}
       <Container className="py-5">
-        <Row className="align-items-center bg-white rounded-4 shadow-lg overflow-hidden g-0">
-          <Col md={4} className="text-center p-4">
-             <Image 
-                src="/images/paul_loko.jpg" // Remplace par le chemin réel du DE
+        <Row className="align-items-center bg-white rounded-4 shadow-lg overflow-hidden g-0 border">
+          <Col md={4} className="text-center p-4 bg-light">
+            <div className="position-relative d-inline-block">
+              <Image 
+                src="https://media.licdn.com/dms/image/v2/D4E22AQERcA2LW1l53A/feedshare-shrink_2048_1536/B4EZaQvoAvHIAs-/0/1746185162782?e=1773273600&v=beta&t=rK2F81MyKhpxi_dLivjRXHTD_3Q3PQuR8UkRHoK7So0" 
                 roundedCircle 
-                className="shadow-sm mb-3"
-                style={{ width: '200px', height: '200px', objectFit: 'cover', border: `4px solid ${caebBlue}` }}
-             />
+                className="shadow-sm"
+                style={{ 
+                  width: '240px', 
+                  height: '240px', 
+                  objectFit: 'cover', 
+                  border: `6px solid white`,
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+                }}
+              />
+              <div className="position-absolute bottom-0 end-0 bg-primary rounded-circle d-flex align-items-center justify-content-center" style={{width: '50px', height: '50px', border: '4px solid white'}}>
+                <HiOutlineSparkles color="white" size={24} />
+              </div>
+            </div>
           </Col>
+          
           <Col md={8} className="p-5">
-            <h6 className="text-uppercase fw-bold" style={{ color: caebOrange, letterSpacing: '2px' }}>Direction Exécutive</h6>
-            <h2 className="display-6 fw-bold mb-3" style={{ color: caebBlue }}>M. Paul LOKO</h2>
-            <p className="lead text-muted">Directeur Exécutif du CAEB</p>
-            <p className="text-muted">
+            <h6 className="text-uppercase fw-bold mb-2" style={{ color: caebOrange, letterSpacing: '2px' }}>
+              Direction Exécutive
+            </h6>
+            <h2 className="display-6 fw-bold mb-3" style={{ color: caebBlue }}>
+              M. Paul LOKO
+            </h2>
+            <p className="lead fw-semibold text-dark mb-3">Directeur Exécutif du CAEB</p>
+            <p className="text-muted lh-lg" style={{ fontSize: '1.1rem' }}>
               Expert en Sociologie, il dirige l'organisation avec une vision humaniste, 
               plaçant l'inclusion numérique et l'accès à la lecture au cœur du développement communautaire.
             </p>
+            <hr className="my-4 opacity-25" />
+            <div className="d-flex gap-3 flex-wrap">
+               <Badge bg="light" text="primary" className="p-2 px-3 border">Leadership</Badge>
+               <Badge bg="light" text="primary" className="p-2 px-3 border">Sociologie</Badge>
+               <Badge bg="light" text="primary" className="p-2 px-3 border">Innovation</Badge>
+            </div>
           </Col>
         </Row>
       </Container>

@@ -154,20 +154,34 @@ function Navbar() {
         </div>
         
         <nav className="d-flex flex-column gap-4">
-          {["Accueil", "Bibliothèques", "Infos", "Connexion"].map((item, idx) => (
-            <Link 
-              key={idx}
-              to={`/${item.toLowerCase().replace(" ", "")}`}
-              onClick={() => setToggleMenu(false)}
-              className="text-white text-decoration-none display-6 fw-bold"
-              style={{ transition: "0.3s" }}
-              onMouseOver={(e) => e.target.style.paddingLeft = "20px"}
-              onMouseOut={(e) => e.target.style.paddingLeft = "0"}
-            >
-              {item}
-            </Link>
-          ))}
-        </nav>
+  {[
+    { label: "Accueil", path: "/accueil" },
+    { label: "Bibliothèques", path: "/library" },
+    { label: "Qui sommes-nous", path: "/about" }, 
+    { label: "S'abonner", path: "/newsletter" }     
+  ].map((item, idx) => (
+    <Link 
+      key={idx}
+      to={item.path}
+      onClick={() => setToggleMenu(false)}
+      className="text-white text-decoration-none display-6 fw-bold"
+      style={{ 
+        transition: "0.3s ease",
+        display: "block" 
+      }}
+      onMouseOver={(e) => {
+        e.target.style.paddingLeft = "20px";
+        e.target.style.color = "#f2994a"; // Petit bonus : changement de couleur au survol
+      }}
+      onMouseOut={(e) => {
+        e.target.style.paddingLeft = "0";
+        e.target.style.color = "white";
+      }}
+    >
+      {item.label}
+    </Link>
+  ))}
+</nav>
       </div>
 
       {/* Spacer pour ne pas cacher le contenu sous la navbar fixe */}
