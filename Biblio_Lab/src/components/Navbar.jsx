@@ -79,7 +79,7 @@ function Navbar() {
             </Link>
             {!isMobile && (
               <div className="ms-3 text-white">
-                <h5 className="mb-0 fw-bold" style={{ letterSpacing: "1px" }}>CAEB</h5>
+                <h5 className="mb-0 fw-bold" style={{ letterSpacing: "1px" }}>Bibliothèque CAEB</h5>
                 <small style={{ fontSize: "0.7rem", opacity: 0.8 }}>Réseau des Bibliothèques</small>
               </div>
             )}
@@ -96,8 +96,8 @@ function Navbar() {
                 <Link to="/library" style={navLinkStyle("/library")}>Bibliothèques</Link>
                 <Dropdown.Toggle split variant="transparent" style={{ color: "white", border: "none" }} />
                 <Dropdown.Menu className="shadow-lg border-0 mt-3" style={{ borderRadius: "12px", overflow: "hidden" }}>
-                  <Dropdown.Item as={Link} to="/library1">Porto-Novo 1</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/library2">Porto-Novo 2</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/library1">Porto-Novo Siège</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/library2">Attakè</Dropdown.Item>
                   <Dropdown.Item className="border-top" as={Link} to="/library">Toutes les bibliothèques</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

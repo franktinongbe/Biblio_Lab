@@ -13,15 +13,71 @@ function Bibliothèques() {
   const caebOrange = "#f2994a";
 
   const libraries = [
-    { id: 1, name: "Porto-Novo 1", image: "/images/porto1.jpg", description: "Une collection moderne avec un espace numérique dynamique.", path: "/library1", city: "Porto-Novo" },
-    { id: 2, name: "Porto-Novo 2", image: "/images/attakè.jpg", description: "Un lieu calme et propice à la lecture et à l’étude.", path: "/library2", city: "Porto-Novo" },
-    { id: 3, name: "Parakou Zongo", image: "/images/parakou..jpg", description: "Une bibliothèque axée sur les archives et documents anciens.", path: "/library3", city: "Parakou" },
-    { id: 4, name: "Parakou FM UP", image: "/images/up.jpg", description: "Un espace jeune public rempli de romans, BD et animations.", path: "/library4", city: "Parakou" },
-    { id: 5, name: "Natitingou", image: "/images/titingou.jpg", description: "Bibliothèque moderne avec des espaces de travail collaboratif.", path: "/library5", city: "Natitingou" },
-    { id: 6, name: "Abomey", image: "/images/abomey.jpg", description: "Écrin culturel au cœur de la cité historique.", path: "/library6", city: "Abomey" },
-    { id: 7, name: "Lokossa", image: "/images/kossalo.jpg", description: "Un espace jeune public rempli de romans, BD et animations.", path: "/library7", city: "Lokossa" },
-    { id: 8, name: "Djougou", image: "/images/djougou.jpg", description: "Accès à la culture pour tous au cœur de la Donga.", path: "/library8", city: "Djougou" },
-  ];
+  { 
+    id: 1, 
+    name: "Porto-Novo Siège", 
+    image: "/images/porto1.jpg", 
+    description: "Le siège historique : un cadre prestigieux alliant patrimoine et ressources numériques de pointe.", 
+    path: "/library1", 
+    city: "Porto-Novo" 
+  },
+  { 
+    id: 2, 
+    name: "Attakè", 
+    image: "/images/attakè.jpg", 
+    description: "Espace Attakè : un lieu vibrant et créatif dédié à l'éveil des jeunes lecteurs et aux ateliers ludiques.", 
+    path: "/library2", 
+    city: "Porto-Novo" 
+  },
+  { 
+    id: 3, 
+    name: "Parakou Zongo", 
+    image: "/images/parakou..jpg", 
+    description: "Un carrefour culturel dynamique proposant une vaste collection toutes catégories confondues.", 
+    path: "/library3", 
+    city: "Parakou" 
+  },
+  { 
+    id: 4, 
+    name: "Parakou FM UP", 
+    image: "/images/up.jpg", 
+    description: "Pôle Santé & Savoir : une bibliothèque spécialisée pour accompagner les étudiants en médecine dans leurs recherches.", 
+    path: "/library4", 
+    city: "Parakou" 
+  },
+  { 
+    id: 5, 
+    name: "Natitingou", 
+    image: "/images/titingou.jpg", 
+    description: "Un refuge intellectuel au pied de l'Atacora, idéal pour l'exploration et les travaux collaboratifs.", 
+    path: "/library5", 
+    city: "Natitingou" 
+  },
+  { 
+    id: 6, 
+    name: "Abomey", 
+    image: "/images/abomey.jpg", 
+    description: "Cité Royale : un écrin majestueux pour découvrir les trésors de l'histoire et du patrimoine béninois.", 
+    path: "/library6", 
+    city: "Abomey" 
+  },
+  { 
+    id: 7, 
+    name: "Lokossa", 
+    image: "/images/kossalo.jpg", 
+    description: "Une escale zen et structurée offrant un environnement de lecture moderne et apaisant.", 
+    path: "/library7", 
+    city: "Lokossa" 
+  },
+  { 
+    id: 8, 
+    name: "Djougou", 
+    image: "/images/djougou.jpg", 
+    description: "Un centre de ressources multiculturel et énergique au service du brassage des savoirs dans la Donga.", 
+    path: "/library8", 
+    city: "Djougou" 
+  },
+];
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -47,7 +103,7 @@ function Bibliothèques() {
           <Badge bg="warning" text="dark" className="mb-3 px-3 py-2 rounded-pill">Réseau National</Badge>
           <h1 className="display-3 fw-bold mb-3">Nos Sanctuaires du Savoir</h1>
           <p className="lead mx-auto opacity-75" style={{ maxWidth: '700px' }}>
-            Explorez notre réseau de 8 bibliothèques réparties à travers le Bénin, conçues pour inspirer chaque génération.
+            Explorez notre réseau de 8 bibliothèques du CAEB-Fondation Vallet réparties à travers le Bénin, conçues pour inspirer chaque génération.
           </p>
         </Container>
       </div>

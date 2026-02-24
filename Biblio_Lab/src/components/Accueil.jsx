@@ -19,8 +19,8 @@ function Accueil() {
 
   const partenaires = [
     { nom: "Fondation Vallet", logo: "https://www.fondationdefrance.org/templates/yootheme/cache/91/Logo_00539-91c5c740.jpeg", site: "https://www.fondationvallet.org" },
-    { nom: "AFD", logo: "https://www.auf.org/wp-content/uploads/2025/03/logo-partenaires-afd-1.jpg", site: "https://www.afd.fr" },
-    { nom: "Secours Populaire Français", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCf_fkLNSghIdV-e70lRThXBrFVRxTE6BZWw&s", site: "https://www.secourspopulaire.fr" }
+    // { nom: "AFD", logo: "https://www.auf.org/wp-content/uploads/2025/03/logo-partenaires-afd-1.jpg", site: "https://www.afd.fr" },
+    // { nom: "Secours Populaire Français", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCf_fkLNSghIdV-e70lRThXBrFVRxTE6BZWw&s", site: "https://www.secourspopulaire.fr" }
   ];
 
   return (

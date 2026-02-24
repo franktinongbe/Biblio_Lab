@@ -14,7 +14,7 @@ const Home = () => {
     font.rel = 'stylesheet';
     document.head.appendChild(font);
 
-    // Styles dynamiques avancés
+    // Styles dynamiques
     const style = document.createElement('style');
     style.innerHTML = `
       @keyframes float {
@@ -41,7 +41,7 @@ const Home = () => {
       .hero-title {
         font-weight: 800;
         letter-spacing: -2px;
-        background: linear-gradient(to right, #ffffff, #e0e0e0);
+        background: linear-gradient(to right, #ffffff, #f0f0f0);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
@@ -64,7 +64,6 @@ const Home = () => {
       }
       .logo-container {
         animation: float 6s ease-in-out infinite;
-        position: relative;
       }
       .video-container {
         position: relative;
@@ -74,7 +73,7 @@ const Home = () => {
       }
     `;
     document.head.appendChild(style);
-  }, []);
+  }, [caebOrange]);
 
   return (
     <div style={{ 
@@ -88,21 +87,22 @@ const Home = () => {
     }}>
       
       {/* Background Decor */}
-      <div style={{ position: 'absolute', top: '10%', left: '5%', width: '300px', height: '300px', background: 'rgba(242, 153, 74, 0.1)', filter: 'blur(80px)', borderRadius: '50%' }}></div>
+      <div style={{ position: 'absolute', top: '10%', left: '5%', width: '300px', height: '300px', background: 'rgba(242, 153, 74, 0.1)', filter: 'blur(80px)', borderRadius: '50%', zIndex: 0 }}></div>
 
-      <header className="container d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-        <div className="row align-items-center">
+      {/* --- HEADER SECTION --- */}
+      <header className="container d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', position: 'relative', zIndex: 1 }}>
+        <div className="row align-items-center w-100">
           
-          {/* Côté Gauche : Texte Immersif */}
+          {/* Côté Gauche : Texte */}
           <div className="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
             <div className="badge mb-3" style={{ background: 'rgba(255,255,255,0.2)', padding: '10px 20px', borderRadius: '20px' }}>
-              <HiOutlineLibrary className="me-2" /> ONG CAEB.
+              <HiOutlineLibrary className="me-2" /> ONG CAEB
             </div>
             <h1 className="display-2 hero-title mb-4">
               L'Avenir de la <br /> 
-              <span style={{ color: caebOrange }}>Culture</span> commence ici.
+              <span style={{ color: caebOrange, WebkitTextFillColor: caebOrange }}>Culture</span> commence ici.
             </h1>
-            <p className="lead mb-5 opacity-75" style={{ fontSize: '1.25rem', maxWidth: '500px' }}>
+            <p className="lead mb-5 opacity-75" style={{ fontSize: '1.2rem', maxWidth: '550px' }}>
               Plongez dans un univers documentaire sans limites. Accédez à des milliers de ressources pour nourrir votre esprit.
             </p>
             <div className="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-lg-start">
@@ -112,18 +112,28 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Côté Droit : Logo et Effet visuel */}
-          <div className="col-lg-6 d-flex justify-content-center">
+          {/* Côté Droit : Logo (Écrin Blanc) */}
+          <div className="col-lg-6 d-flex justify-content-center align-items-center">
             <div className="logo-container">
-              <div className="glass-card p-5 text-center">
+              <div className="p-5 text-center shadow-lg" style={{ 
+                background: 'rgba(255, 255, 255, 0.98)', 
+                borderRadius: '40px',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                maxWidth: '400px'
+              }}>
                 <img 
-                  src="/images/logoc.png" 
+                  src="/images/caeb.png" 
                   alt="CAEB Logo" 
-                  style={{ width: '220px', filter: 'drop-shadow(0 10px 20px rgba(255, 255, 255, 0.3))' }}
+                  style={{ 
+                    width: '100%', 
+                    maxWidth: '220px', 
+                    height: 'auto',
+                    filter: 'drop-shadow(0 5px 10px rgba(0,0,0,0.1))'
+                  }} 
                 />
                 <div className="mt-4">
-                  <h4 className="fw-bold mb-0">CAEB</h4>
-                  <p className="small opacity-50 mb-0">Conseil des Activités Educatives du Bénin</p>
+                  <h4 className="fw-bold mb-0" style={{ color: caebBlue }}>CAEB</h4>
+                  <p className="small mb-0 text-muted">Conseil des Activités Éducatives du Bénin</p>
                 </div>
               </div>
             </div>
@@ -131,7 +141,7 @@ const Home = () => {
         </div>
       </header>
 
-      {/* Section Vidéo avec Glassmorphism */}
+      {/* --- SECTION VIDEO --- */}
       <section className="py-5" style={{ background: 'rgba(0,0,0,0.2)' }}>
         <div className="container py-5">
           <div className="row justify-content-center">
@@ -150,8 +160,8 @@ const Home = () => {
                         <small className="opacity-50">Ouvrages</small>
                       </div>
                       <div className="text-center">
-                        <h3 className="fw-bold mb-0">Du Lundi au Samedi de 8H à 18H</h3>
-                        <small className="opacity-50">Accès</small>
+                        <h6 className="fw-bold mb-0">8H - 18H</h6>
+                        <small className="opacity-50">Lun - Sam</small>
                       </div>
                     </div>
                   </div>
@@ -159,12 +169,12 @@ const Home = () => {
                     <div className="video-container">
                       <video
                         width="100%"
-                        loop autoPlay muted
-                        style={{ display: 'block' }}
+                        loop autoPlay muted playsInline
+                        style={{ display: 'block', minHeight: '300px', objectFit: 'cover' }}
                       >
                         <source src="https://videos.pexels.com/video-files/31033574/13264164_2560_1440_30fps.mp4" type="video/mp4" />
                       </video>
-                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)' }}></div>
+                      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to top, rgba(0,0,0,0.4), transparent)' }}></div>
                     </div>
                   </div>
                 </div>
@@ -175,7 +185,7 @@ const Home = () => {
       </section>
 
       <footer className="py-4 text-center opacity-50">
-        <p className="small">© {new Date().getFullYear()} Bibliothèque CAEB. - Tous droits réservés.</p>
+        <p className="small">© {new Date().getFullYear()} Bibliothèque CAEB - Tous droits réservés.</p>
       </footer>
     </div>
   );

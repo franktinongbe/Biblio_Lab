@@ -59,7 +59,7 @@ function Footer() {
             </div>
             <h5 className="fw-bold mb-3" style={{ letterSpacing: "1px" }}>CAEB BÉNIN</h5>
             <p className="small opacity-75 mb-4" style={{ lineHeight: "1.7", maxWidth: "320px" }}>
-              Le Conseil des Activités Éducatives du Bénin œuvre pour l'excellence éducative et l'accès à la culture pour tous à travers son réseau de bibliothèques.
+              Le Conseil des Activités Éducatives du Bénin avec son partenaire la Fondation Vallet œuvrent pour l'excellence éducative et l'accès à la culture pour tous à travers son réseau de bibliothèques.
             </p>
             <div className="d-flex gap-2 justify-content-center justify-content-md-start">
               {[
@@ -114,11 +114,11 @@ function Footer() {
             <h5 className="mb-4 fw-bold text-uppercase" style={{ fontSize: "0.85rem", color: caebOrange, letterSpacing: "1px" }}>Contactez-nous</h5>
             <div className="d-flex align-items-center justify-content-center justify-content-md-start mb-3 opacity-75 hover-contact">
               <HiOutlineLocationMarker size={20} className="me-3" style={{ color: caebOrange }} />
-              <span className="small">Siège Social, Porto-Novo, Bénin, Oganla</span>
+              <span className="small">Siège National, BP : 1484 Porto-Novo, Bénin,</span>
             </div>
             <div className="d-flex align-items-center justify-content-center justify-content-md-start mb-3 opacity-75 hover-contact">
               <HiOutlinePhone size={20} className="me-3" style={{ color: caebOrange }} />
-              <span className="small">+229 20 21 XX XX</span>
+              <span className="small">+229 20 21 38 60</span>
             </div>
             <div className="d-flex align-items-center justify-content-center justify-content-md-start mb-4 opacity-75 hover-contact">
               <HiOutlineMail size={20} className="me-3" style={{ color: caebOrange }} />

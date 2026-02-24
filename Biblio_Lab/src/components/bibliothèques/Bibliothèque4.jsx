@@ -1,103 +1,128 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { 
+  HiOutlineBeaker, 
+  HiOutlineAcademicCap, 
+  HiOutlineClock,
+  HiOutlineDocumentText,
+  HiOutlinePlusCircle,
+  HiOutlineScale // On remplace Microscope par Scale ou une autre icône existante
+} from "react-icons/hi2";
 
 function Parakou_FM_UP() {
+  const medicalCyan = "#00ADB5";
+  const medicalDark = "#222831";
+
   const programme = [
-    { jour: "Lundi", activité: "Atelier d'écriture" },
-    { jour: "Mercredi", activité: "Heure du conte pour enfants" },
-    { jour: "Vendredi", activité: "Projection documentaire" },
+    { jour: "Lundi", activité: "Atelier d'écriture", icon: <HiOutlineDocumentText />, code: "MED-01" },
+    { jour: "Mercredi", activité: "Heure du conte", icon: <HiOutlineAcademicCap />, code: "MED-02" },
+    { jour: "Vendredi", activité: "Projection docu", icon: <HiOutlineBeaker />, code: "MED-03" },
   ];
 
   const actualites = [
-    "Nouvelle salle de lecture ouverte !",
-    "Exposition : Livres anciens jusqu’au fin mai.",
-    "Concours de lecture – inscriptions ouvertes.",
+    "Accès aux bases de données médicales mondiales.",
+    "Nouvelle collection de manuels d'anatomie.",
+    "Conférence : Éthique et Médecine le 15 Mars.",
   ];
 
   const livres = [
-    {
-      titre: "L'Étranger - Albert Camus",
-      image: "https://i.pinimg.com/736x/71/0f/56/710f56ca11ca5f08edd62eec9aea547b.jpg",
-    },
-    {
-      titre: "Le Petit Prince - Antoine de Saint-Exupéry",
-      image: "https://i.pinimg.com/736x/2d/6d/0b/2d6d0b7fb21183921f86f23f1c15ad94.jpg",
-    },
-    {
-      titre: "1984 - George Orwell",
-      image: "https://i.pinimg.com/736x/47/ec/55/47ec55cb4487080ea75a344228297ad2.jpg",
-    },
-    {
-      titre: "La Peste - Albert Camus",
-      image: "https://i.pinimg.com/736x/d0/a8/59/d0a859b50b31803f7b3fa7ebf9324b5d.jpg",
-    },
+    { titre: "L'Étranger", auteur: "Albert Camus", image: "https://i.pinimg.com/736x/71/0f/56/710f56ca11ca5f08edd62eec9aea547b.jpg" },
+    { titre: "Le Petit Prince", auteur: "Saint-Exupéry", image: "https://i.pinimg.com/736x/2d/6d/0b/2d6d0b7fb21183921f86f23f1c15ad94.jpg" },
+    { titre: "1984", auteur: "George Orwell", image: "https://i.pinimg.com/736x/47/ec/55/47ec55cb4487080ea75a344228297ad2.jpg" },
+    { titre: "La Peste", auteur: "Albert Camus", image: "https://i.pinimg.com/736x/d0/a8/59/d0a859b50b31803f7b3fa7ebf9324b5d.jpg" },
   ];
 
   return (
-    <div className="container py-5">
-      {/* Hero */}
-      <div className="text-center mb-5">
-        <h1 className="display-4 fw-bold text-dark">📚 Bibliothèque CAEB Parakou Faculté de Médécine</h1>
-        <p className="lead text-muted">
-          Un lieu moderne dédié au savoir et à la créativité.
-        </p>
-      </div>
-
-      {/* Programme */}
-      <section className="mb-5">
-        <h3 className="mb-3 text-warning">🗓️ Programme Hebdomadaire</h3>
-        <div className="row">
-          {programme.map((item, index) => (
-            <div key={index} className="col-md-4 mb-3">
-              <div className="bg-light p-3 rounded border shadow-sm h-100">
-                <h5 className="text-dark">{item.jour}</h5>
-                <p className="mb-0">{item.activité}</p>
+    <div style={{ backgroundColor: "#f9fcfd", minHeight: "100vh", fontFamily: "'Inter', sans-serif" }}>
+      
+      {/* --- HERO SECTION "LABORATOIRE" --- */}
+      <section className="py-5 position-relative overflow-hidden" style={{ background: medicalDark, color: "white" }}>
+        <div className="container py-4 position-relative" style={{ zIndex: 2 }}>
+          <div className="row align-items-center">
+            <div className="col-md-7">
+              <div className="d-flex align-items-center mb-3">
+                 <HiOutlinePlusCircle className="fs-3 me-2" style={{ color: medicalCyan }} />
+                 <span className="fw-bold text-uppercase small">Campus Universitaire UP</span>
               </div>
+              <h1 className="display-4 fw-bold mb-3">Pôle <span style={{ color: medicalCyan }}>Santé</span> & Savoir</h1>
+              <p className="lead opacity-75">La bibliothèque dédiée aux futurs professionnels de la santé de Parakou.</p>
             </div>
-          ))}
+            <div className="col-md-5 text-center d-none d-md-block opacity-25">
+               <HiOutlineMicroscope style={{ fontSize: "200px" }} />
+            </div>
+          </div>
         </div>
+        {/* Grille technique en fond */}
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, opacity: 0.1, backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "40px 40px" }}></div>
       </section>
 
-      {/* Actualités */}
-      <section className="mb-5">
-        <h3 className="mb-3 text-primary">📰 Actualités</h3>
-        <div className="bg-light border p-4 rounded shadow-sm">
-          <ul className="mb-0">
-            {actualites.map((news, idx) => (
-              <li key={idx} className="mb-2">{news}</li>
-            ))}
-          </ul>
+      <div className="container" style={{ marginTop: "-30px" }}>
+        {/* --- ACTUALITÉS (STYLE NOTIFICATION) --- */}
+        <div className="row justify-content-center mb-5">
+          <div className="col-lg-10">
+            <div className="bg-white p-3 shadow-sm rounded-pill d-flex align-items-center px-4 border">
+              <span className="badge me-3" style={{ backgroundColor: medicalCyan }}>FLASH INFO</span>
+              <marquee className="small fw-medium text-muted">{actualites.join(" • ")}</marquee>
+            </div>
+          </div>
         </div>
-      </section>
 
-      {/* Livres disponibles */}
-      <section>
-        <h3 className="mb-4 text-success">📖 Livres Disponibles</h3>
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
-          {livres.map((livre, i) => (
-            <div key={i} className="col">
-              <div className="card h-100 shadow-sm border-0 hover-shadow">
-                <img
-                  src={livre.image}
-                  alt={livre.titre}
-                  className="card-img-top"
-                  style={{ height: "250px", objectFit: "cover" }}
-                />
-                <div className="card-body">
-                  <p className="card-text text-center fw-semibold">{livre.titre}</p>
+        <div className="row g-4">
+          {/* --- PROGRAMME (STYLE FICHE CLINIQUE) --- */}
+          <div className="col-lg-4">
+            <h5 className="fw-bold mb-4 d-flex align-items-center">
+              <HiOutlineClock className="me-2 text-primary" /> Sessions d'Études
+            </h5>
+            {programme.map((p, i) => (
+              <div key={i} className="card border-0 border-bottom mb-3 rounded-0 bg-transparent">
+                <div className="d-flex p-3 align-items-center">
+                  <div className="p-3 bg-white border rounded shadow-sm me-3">{p.icon}</div>
+                  <div>
+                    <div className="text-muted fw-bold" style={{ fontSize: '0.7rem' }}>MODULE {p.code}</div>
+                    <div className="fw-bold">{p.jour} : {p.activité}</div>
+                  </div>
                 </div>
               </div>
+            ))}
+            
+            <div className="mt-5 p-4 rounded-4 text-white" style={{ background: `linear-gradient(135deg, ${medicalCyan}, #00818a)` }}>
+               <h6 className="fw-bold">Espace de Recherche</h6>
+               <p className="small mb-0">Besoin d'aide pour vos thèses ? Nos bibliothécaires spécialisés vous accompagnent.</p>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="text-end mt-4">
-          <Link to="/catalogue/library4" className="btn btn-outline-success">
-            Voir tous les livres →
-          </Link>
+          {/* --- LIVRES (STYLE ÉTAGÈRE MODERNE) --- */}
+          <div className="col-lg-8">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+              <h4 className="fw-bold m-0">Ressources Académiques</h4>
+              <Link to="/catalogue/library4" className="btn btn-sm btn-outline-dark rounded-0 px-3">Catalogue FM</Link>
+            </div>
+
+            <div className="row g-4">
+              {livres.map((l, i) => (
+                <div key={i} className="col-sm-6 col-md-3">
+                  <div className="card h-100 border-0 shadow-sm bg-white hover-up transition-all">
+                    <div className="p-2">
+                      <img src={l.image} alt={l.titre} className="card-img-top rounded shadow-sm" style={{ height: "180px", objectFit: "cover" }} />
+                    </div>
+                    <div className="card-body pt-0 text-center">
+                      <p className="small fw-bold mb-1 text-truncate">{l.titre}</p>
+                      <div style={{ height: "2px", width: "20px", background: medicalCyan, margin: "0 auto" }}></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+
+      <style>{`
+        .transition-all { transition: 0.3s ease; }
+        .hover-up:hover { transform: translateY(-10px); }
+        .fw-black { font-weight: 900; }
+      `}</style>
     </div>
   );
 }
