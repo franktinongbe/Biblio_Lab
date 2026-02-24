@@ -110,59 +110,63 @@ function Infos() {
         >
           
           {/* PAGE 1: A PROPOS (MISSION / OBJECTIF / REALISATIONS) */}
-          <Carousel.Item className="vh-100">
-            <Container className="h-100 d-flex flex-column justify-content-center py-5">
-              <div className="text-center mb-4">
-                <Badge bg="warning" text="dark" className="mb-2 px-3 py-2 rounded-pill shadow-sm">Impact & Vision</Badge>
-                <h1 className="display-5 fw-bold" style={{ color: caebBlue }}>À Propos du CAEB</h1>
-              </div>
-              <Row className="g-4 px-lg-4 overflow-hidden" style={{ maxHeight: '70vh' }}>
-                <Col md={4}>
-                  <div className="p-4 h-100 rounded-5 shadow-sm bg-white border-start border-5 border-warning card-hover custom-scroll overflow-auto" style={{ maxHeight: '450px' }}>
-                    <HiOutlineRocketLaunch size={32} className="mb-3 text-warning" />
-                    <h4 className="fw-bold">Mission</h4>
-                    <p className="text-muted small lh-base">
-                      La mission du CAEB est de contribuer aux côtés de l’Etat béninois à l’amélioration des conditions de vie des populations. Cette mission se décline en 6 grands objectifs :
-                      <br /><br />
-                      • Accès et maintien des enfants dans le système éducatif ;<br />
-                      • Amélioration de la qualité de l’éducation ;<br />
-                      • Formation des jeunes scolarisés ou non ;<br />
-                      • Développement de la Petite Enfance (DPE) ;<br />
-                      • Enrichissement des échanges nationaux et internationaux ;<br />
-                      • Renforcement des capacités institutionnelles.
-                    </p>
-                  </div>
-                </Col>
-                <Col md={4}>
-                  <div className="p-4 h-100 rounded-5 shadow-sm bg-white border-start border-5 border-primary card-hover custom-scroll overflow-auto" style={{ maxHeight: '450px' }}>
-                    <HiOutlineLightBulb size={32} className="mb-3 text-primary" />
-                    <h4 className="fw-bold">Objectif</h4>
-                    <p className="text-muted small lh-base">
-                      L’objectif est d’assurer la formation permanente des éducateurs pour la promotion et le bien-être des enfants, des femmes, des adolescents et des adultes. 
-                      <br /><br />
-                      Cela implique des actions partenariales qui créent et mettent en réseau des espaces éducatifs et sociaux de formation et d’apprentissage pour un développement harmonieux de la communauté.
-                    </p>
-                  </div>
-                </Col>
-                <Col md={4}>
-                  <div className="p-4 h-100 rounded-5 shadow-sm bg-white border-start border-5 border-success card-hover custom-scroll overflow-auto" style={{ maxHeight: '450px' }}>
-                    <HiOutlineBuildingLibrary size={32} className="mb-3 text-success" />
-                    <h4 className="fw-bold">Activités</h4>
-                    <p className="text-muted small lh-base">
-                      • Bourses VALLET ;<br />
-                      • Laboratoires d'IA et de langues ;<br />
-                      • Éducation à la citoyenneté (OVIDAGBE) ;<br />
-                      • Lutte contre la malnutrition infantile ;<br />
-                      • Hygiène menstruelle (Ouémé) ;<br />
-                      • Parrainage d'enfants ;<br />
-                      • Centres de métier ;<br />
-                      • Promotion du Développement Durable.
-                    </p>
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </Carousel.Item>
+          <Carousel.Item className="min-vh-100">
+  <div className="scroll-container-mobile h-100"> {/* Wrapper pour activer le scroll si nécessaire */}
+    <Container className="min-vh-100 d-flex flex-column justify-content-center py-5">
+      <div className="text-center mb-4">
+        <Badge bg="warning" text="dark" className="mb-2 px-3 py-2 rounded-pill shadow-sm">Impact & Vision</Badge>
+        <h1 className="display-5 fw-bold" style={{ color: caebBlue }}>À Propos du CAEB</h1>
+      </div>
+      
+      {/* Suppression de overflow-hidden et des maxHeight fixes qui bloquaient le scroll */}
+      <Row className="g-4 px-lg-4">
+        <Col md={4}>
+          <div className="p-4 h-100 rounded-5 shadow-sm bg-white border-start border-5 border-warning card-hover custom-scroll">
+            <HiOutlineRocketLaunch size={32} className="mb-3 text-warning" />
+            <h4 className="fw-bold">Mission</h4>
+            <p className="text-muted small lh-base">
+              La mission du CAEB est de contribuer aux côtés de l’Etat béninois à l’amélioration des conditions de vie des populations. Cette mission se décline en 6 grands objectifs :
+              <br /><br />
+              • Accès et maintien des enfants dans le système éducatif ;<br />
+              • Amélioration de la qualité de l’éducation ;<br />
+              • Formation des jeunes scolarisés ou non ;<br />
+              • Développement de la Petite Enfance (DPE) ;<br />
+              • Enrichissement des échanges nationaux et internationaux ;<br />
+              • Renforcement des capacités institutionnelles.
+            </p>
+          </div>
+        </Col>
+        <Col md={4}>
+          <div className="p-4 h-100 rounded-5 shadow-sm bg-white border-start border-5 border-primary card-hover custom-scroll">
+            <HiOutlineLightBulb size={32} className="mb-3 text-primary" />
+            <h4 className="fw-bold">Objectif</h4>
+            <p className="text-muted small lh-base">
+              L’objectif est d’assurer la formation permanente des éducateurs pour la promotion et le bien-être des enfants, des femmes, des adolescents et des adultes. 
+              <br /><br />
+              Cela implique des actions partenariales qui créent et mettent en réseau des espaces éducatifs et sociaux de formation et d’apprentissage pour un développement harmonieux de la communauté.
+            </p>
+          </div>
+        </Col>
+        <Col md={4}>
+          <div className="p-4 h-100 rounded-5 shadow-sm bg-white border-start border-5 border-success card-hover custom-scroll">
+            <HiOutlineBuildingLibrary size={32} className="mb-3 text-success" />
+            <h4 className="fw-bold">Activités</h4>
+            <p className="text-muted small lh-base">
+              • Bourses VALLET ;<br />
+              • Laboratoires d'IA et de langues ;<br />
+              • Éducation à la citoyenneté (OVIDAGBE) ;<br />
+              • Lutte contre la malnutrition infantile ;<br />
+              • Hygiène menstruelle (Ouémé) ;<br />
+              • Parrainage d'enfants ;<br />
+              • Centres de métier ;<br />
+              • Promotion du Développement Durable.
+            </p>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  </div>
+</Carousel.Item>
 
           {/* PAGE 2: DIRECTION */}
           <Carousel.Item className="vh-100 bg-light">

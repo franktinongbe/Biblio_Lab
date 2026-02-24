@@ -8,13 +8,11 @@ const Home = () => {
   const caebOrange = "#f2994a";
 
   useEffect(() => {
-    // Ajout de la police Montserrat
     const font = document.createElement('link');
     font.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap';
     font.rel = 'stylesheet';
     document.head.appendChild(font);
 
-    // Styles dynamiques
     const style = document.createElement('style');
     style.innerHTML = `
       @keyframes float {
@@ -40,7 +38,7 @@ const Home = () => {
       }
       .hero-title {
         font-weight: 800;
-        letter-spacing: -2px;
+        letter-spacing: -1px;
         background: linear-gradient(to right, #ffffff, #f0f0f0);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -71,6 +69,10 @@ const Home = () => {
         overflow: hidden;
         box-shadow: 0 25px 50px rgba(0,0,0,0.3);
       }
+      @media (max-width: 768px) {
+        .hero-title { font-size: 2.2rem; letter-spacing: 0; }
+        .hero-section { padding-top: 100px !important; }
+      }
     `;
     document.head.appendChild(style);
   }, [caebOrange]);
@@ -83,27 +85,34 @@ const Home = () => {
       animation: 'bgFlow 15s ease infinite',
       minHeight: '100vh',
       color: 'white',
-      overflowX: 'hidden'
+      overflowX: 'hidden',
+      position: 'relative'
     }}>
       
       {/* Background Decor */}
       <div style={{ position: 'absolute', top: '10%', left: '5%', width: '300px', height: '300px', background: 'rgba(242, 153, 74, 0.1)', filter: 'blur(80px)', borderRadius: '50%', zIndex: 0 }}></div>
 
       {/* --- HEADER SECTION --- */}
-      <header className="container d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', position: 'relative', zIndex: 1 }}>
-        <div className="row align-items-center w-100">
+      <header className="container hero-section py-5 d-flex align-items-center" style={{ minHeight: '100vh', position: 'relative', zIndex: 1 }}>
+        <div className="row align-items-center w-100 g-5">
           
           {/* Côté Gauche : Texte */}
-          <div className="col-lg-6 text-center text-lg-start mb-5 mb-lg-0">
-            <div className="badge mb-3" style={{ background: 'rgba(255,255,255,0.2)', padding: '10px 20px', borderRadius: '20px' }}>
-              <HiOutlineLibrary className="me-2" /> ONG CAEB
+          <div className="col-lg-7 text-center text-lg-start">
+            <div className="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 mb-4">
+                <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', padding: '10px 20px', borderRadius: '20px' }}>
+                <HiOutlineLibrary className="me-2" /> ONG CAEB
+                </div>
+                <div className="badge" style={{ background: 'rgba(255,255,255,0.2)', padding: '10px 20px', borderRadius: '20px' }}>
+                <HiOutlineLibrary className="me-2" /> Fondation Vallet
+                </div>
             </div>
+
             <h1 className="display-2 hero-title mb-4">
-              L'Avenir de la <br /> 
-              <span style={{ color: caebOrange, WebkitTextFillColor: caebOrange }}>Culture</span> commence ici.
+              Bienvenue dans l'univers du Réseau <br /> 
+              <span style={{ color: caebOrange, WebkitTextFillColor: caebOrange }}>des Bibliothèques CAEB</span> Fondation Vallet.
             </h1>
-            <p className="lead mb-5 opacity-75" style={{ fontSize: '1.2rem', maxWidth: '550px' }}>
-              Plongez dans un univers documentaire sans limites. Accédez à des milliers de ressources pour nourrir votre esprit.
+            <p className="lead mb-5 opacity-75 mx-auto mx-lg-0" style={{ fontSize: '1.2rem', maxWidth: '550px' }}>
+              L'avenir de la culture commence ici. Accédez à des milliers de ressources pour nourrir votre esprit.
             </p>
             <div className="d-flex flex-column flex-md-row gap-3 justify-content-center justify-content-lg-start">
               <Link to="/accueil" className="btn btn-caeb d-flex align-items-center justify-content-center gap-2 text-decoration-none">
@@ -112,28 +121,35 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Côté Droit : Logo (Écrin Blanc) */}
-          <div className="col-lg-6 d-flex justify-content-center align-items-center">
-            <div className="logo-container">
-              <div className="p-5 text-center shadow-lg" style={{ 
+          {/* Côté Droit : Logos (Écrin Blanc) */}
+          <div className="col-lg-5 d-flex justify-content-center align-items-center">
+            <div className="logo-container w-100 d-flex justify-content-center">
+              <div className="p-4 p-md-5 text-center shadow-lg" style={{ 
                 background: 'rgba(255, 255, 255, 0.98)', 
                 borderRadius: '40px',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 maxWidth: '400px'
               }}>
-                <img 
-                  src="/images/caeb.png" 
-                  alt="CAEB Logo" 
-                  style={{ 
-                    width: '100%', 
-                    maxWidth: '220px', 
-                    height: 'auto',
-                    filter: 'drop-shadow(0 5px 10px rgba(0,0,0,0.1))'
-                  }} 
-                />
-                <div className="mt-4">
-                  <h4 className="fw-bold mb-0" style={{ color: caebBlue }}>CAEB</h4>
-                  <p className="small mb-0 text-muted">Conseil des Activités Éducatives du Bénin</p>
+                <div className="d-flex align-items-center justify-content-center gap-3 mb-4">
+                  <img 
+                    src="/images/caeb.png" 
+                    alt="Logo CAEB" 
+                    style={{ width: '45%', height: 'auto', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.1))' }} 
+                  />
+                  <div style={{ width: '1px', height: '60px', background: '#eee' }}></div>
+                  <img 
+                    src="/images/vallet.png" 
+                    alt="Logo Fondation Vallet" 
+                    style={{ width: '45%', height: 'auto', filter: 'drop-shadow(0 2px 5px rgba(0,0,0,0.1))' }} 
+                  />
+                </div>
+                <div className="mt-3 text-dark">
+                  <h4 className="fw-bold mb-1" style={{ color: caebBlue, fontSize: '1.2rem' }}>
+                    PARTENARIAT ÉDUCATIF
+                  </h4>
+                  <p className="small mb-0 text-muted px-2" style={{ lineHeight: '1.4' }}>
+                    Le Réseau des Bibliothèques du <strong>CAEB</strong> soutenu par la <strong>Fondation Vallet</strong>
+                  </p>
                 </div>
               </div>
             </div>
@@ -147,20 +163,20 @@ const Home = () => {
           <div className="row justify-content-center">
             <div className="col-lg-10">
               <div className="glass-card p-4 p-md-5">
-                <div className="row align-items-center">
-                  <div className="col-md-5 mb-4 mb-md-0">
+                <div className="row align-items-center g-4">
+                  <div className="col-md-5 text-center text-md-start">
                     <h2 className="fw-bold mb-3" style={{ color: caebOrange }}>Immersion Totale</h2>
                     <p className="opacity-75">
                       Découvrez comment nos espaces redéfinissent l'accès au savoir au Bénin. Une expérience numérique et physique unique.
                     </p>
                     <hr className="my-4 border-white opacity-25" />
-                    <div className="d-flex gap-4">
+                    <div className="d-flex justify-content-center justify-content-md-start gap-4">
                       <div className="text-center">
                         <h3 className="fw-bold mb-0">+50k</h3>
                         <small className="opacity-50">Ouvrages</small>
                       </div>
                       <div className="text-center">
-                        <h6 className="fw-bold mb-0">8H - 18H</h6>
+                        <h3 className="fw-bold mb-0">8H-18H</h3>
                         <small className="opacity-50">Lun - Sam</small>
                       </div>
                     </div>
@@ -170,7 +186,7 @@ const Home = () => {
                       <video
                         width="100%"
                         loop autoPlay muted playsInline
-                        style={{ display: 'block', minHeight: '300px', objectFit: 'cover' }}
+                        style={{ display: 'block', height: '350px', objectFit: 'cover' }}
                       >
                         <source src="https://videos.pexels.com/video-files/31033574/13264164_2560_1440_30fps.mp4" type="video/mp4" />
                       </video>

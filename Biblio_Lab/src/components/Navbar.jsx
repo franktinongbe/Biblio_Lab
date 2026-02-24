@@ -13,7 +13,6 @@ function Navbar() {
   const caebBlue = "#1D4F9A";
   const caebOrange = "#f2994a";
 
-  // Gestion du scroll pour un effet collant transparent/opaque
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -27,6 +26,15 @@ function Navbar() {
     mediaQuery.addEventListener("change", handleResize);
     return () => mediaQuery.removeEventListener("change", handleResize);
   }, []);
+
+  // Empêcher le scroll du body quand le menu mobile est ouvert
+  useEffect(() => {
+    if (toggleMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [toggleMenu]);
 
   const navLinkStyle = (path) => ({
     fontFamily: "'Montserrat', sans-serif",
@@ -57,7 +65,6 @@ function Navbar() {
       >
         <Container className="d-flex justify-content-between align-items-center">
           
-          {/* LOGO SECTION */}
           <div className="d-flex align-items-center">
             <Link to="/" className="text-decoration-none">
               <div className="logo-container"
@@ -71,27 +78,25 @@ function Navbar() {
                   alignItems: "center",
                   boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
                   transition: "all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
-                  padding: "8px"
+                  padding: "5px",
+                  gap: "2px"
                 }}
               >
-                <img src="/images/logoc.png" alt="C.A.E.B." style={{ width: "100%", height: "100%", objectFit: "contain" }} />
+                <img src="/images/logoc.png" alt="C.A.E.B." style={{ width: "45%", height: "auto", objectFit: "contain" }} />
+                <img src="/images/vallet.png" alt="Fdt vallet" style={{ width: "45%", height: "auto", objectFit: "contain" }} />
               </div>
             </Link>
             {!isMobile && (
               <div className="ms-3 text-white">
-                <h5 className="mb-0 fw-bold" style={{ letterSpacing: "1px" }}>Bibliothèque CAEB</h5>
-                <small style={{ fontSize: "0.7rem", opacity: 0.8 }}>Réseau des Bibliothèques</small>
+                <h5 className="mb-0 fw-bold" style={{ letterSpacing: "1px" }}>Réseau des Bibliothèques CAEB-FV</h5>
               </div>
             )}
           </div>
 
-          {/* DESKTOP NAV */}
           {!isMobile ? (
             <nav className="d-flex align-items-center gap-3">
               <Link style={navLinkStyle("/accueil")} to="/accueil" className="nav-hover-effect">Accueil</Link>
-              
               <Link style={navLinkStyle("/about")} to="/about">Qui sommes-nous?</Link>
-
               <Dropdown as={ButtonGroup} className="custom-dropdown">
                 <Link to="/library" style={navLinkStyle("/library")}>Bibliothèques</Link>
                 <Dropdown.Toggle split variant="transparent" style={{ color: "white", border: "none" }} />
@@ -101,8 +106,6 @@ function Navbar() {
                   <Dropdown.Item className="border-top" as={Link} to="/library">Toutes les bibliothèques</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-
-              
               <Link 
                 to="/newsletter"
                 className="btn ms-3 px-4 shadow-sm"
@@ -114,8 +117,6 @@ function Navbar() {
                   transition: "all 0.3s ease",
                   border: "none"
                 }}
-                onMouseOver={(e) => e.target.style.transform = "translateY(-3px)"}
-                onMouseOut={(e) => e.target.style.transform = "translateY(0)"}
               >
                 S'abonner
               </Link>
@@ -128,7 +129,7 @@ function Navbar() {
         </Container>
       </header>
 
-      {/* MOBILE OVERLAY MENU */}
+      {/* MOBILE OVERLAY MENU - CORRIGÉ POUR LE SCROLL */}
       <div 
         style={{
           position: "fixed",
@@ -141,50 +142,40 @@ function Navbar() {
           transition: "0.5s cubic-bezier(0.77,0.2,0.05,1.0)",
           display: "flex",
           flexDirection: "column",
-          padding: "40px"
+          padding: "40px",
+          overflowY: "auto" // Correction ici : permet de scroller si le menu est long
         }}
       >
-        <div className="d-flex justify-content-between align-items-center mb-5">
-          <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "50%", width: "60px" }}>
-            <img src="/images/logoc.png" alt="logo" className="img-fluid" />
+        <div className="d-flex justify-content-between align-items-center mb-5 flex-shrink-0">
+          <div style={{ backgroundColor: "white", padding: "10px", borderRadius: "50%", width: "60px", display: "flex", gap: "2px" }}>
+            <img src="/images/logoc.png" alt="logo" style={{ width: "45%" }} />
+            <img src="/images/vallet.png" alt="logo" style={{ width: "45%" }} />
           </div>
           <button className="btn text-white" onClick={() => setToggleMenu(false)}>
             <HiOutlineX size={40} />
           </button>
         </div>
         
-        <nav className="d-flex flex-column gap-4">
-  {[
-    { label: "Accueil", path: "/accueil" },
-    { label: "Bibliothèques", path: "/library" },
-    { label: "Qui sommes-nous", path: "/about" }, 
-    { label: "S'abonner", path: "/newsletter" }     
-  ].map((item, idx) => (
-    <Link 
-      key={idx}
-      to={item.path}
-      onClick={() => setToggleMenu(false)}
-      className="text-white text-decoration-none display-6 fw-bold"
-      style={{ 
-        transition: "0.3s ease",
-        display: "block" 
-      }}
-      onMouseOver={(e) => {
-        e.target.style.paddingLeft = "20px";
-        e.target.style.color = "#f2994a"; // Petit bonus : changement de couleur au survol
-      }}
-      onMouseOut={(e) => {
-        e.target.style.paddingLeft = "0";
-        e.target.style.color = "white";
-      }}
-    >
-      {item.label}
-    </Link>
-  ))}
-</nav>
+        <nav className="d-flex flex-column gap-4 pb-5">
+          {[
+            { label: "Accueil", path: "/accueil" },
+            { label: "Bibliothèques", path: "/library" },
+            { label: "Qui sommes-nous", path: "/about" }, 
+            { label: "S'abonner", path: "/newsletter" }     
+          ].map((item, idx) => (
+            <Link 
+              key={idx}
+              to={item.path}
+              onClick={() => setToggleMenu(false)}
+              className="text-white text-decoration-none display-6 fw-bold mobile-nav-link"
+              style={{ transition: "0.3s ease" }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
 
-      {/* Spacer pour ne pas cacher le contenu sous la navbar fixe */}
       <div style={{ height: "90px" }}></div>
 
       <style>{`
@@ -198,16 +189,18 @@ function Navbar() {
           right: 0;
           background: #f2994a;
           transition: width .3s ease;
-          -webkit-transition: width .3s ease;
         }
         .nav-hover-effect:hover:after {
           width: 100%;
           left: 0;
-          background: #f2994a;
         }
         .custom-dropdown .dropdown-item:hover {
           background-color: #f2994a !important;
           color: white !important;
+        }
+        .mobile-nav-link:hover {
+          padding-left: 20px;
+          color: #f2994a !important;
         }
       `}</style>
     </>
