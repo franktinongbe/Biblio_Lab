@@ -23,6 +23,7 @@ import SpotPub from "./components/SpotPub";
 import Catalogue from './components/Catalogue';
 import BookList from './components/BookList';
 import FAQ from "./components/Faq";
+import Subscription from "./components/Abonnement";
 
 // Layout avec Navbar et Footer
 const Layout = ({ children }) => {
@@ -71,7 +72,7 @@ function App() {
         <Route path="/pdc" element={<Layout><PolitiqueDeConfidentialité /></Layout>} />
         <Route path="/newsletter" element={<Layout><Newsletter /></Layout>} />
         <Route path="/spotpub" element={<Layout><SpotPub /></Layout>} /> 
-        
+        <Route path="/subscription" element={<Layout><Subscription /></Layout>} />
       </Routes>
     </Router>
   );

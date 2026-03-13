@@ -93,7 +93,8 @@ function Footer() {
                 { name: "Bibliothèques", path: "/library" },
                 { name: "Infos & Valeurs", path: "/about" },
                 { name: "Catalogue", path: "/catalogue/:biblioId" },
-                { name: "FAQ", path: "/faq" }
+                { name: "FAQ", path: "/faq" },
+                { name: "Newsletters", path: "/newsletter" }
               ].map((link, idx) => (
                 <li key={idx} className="mb-3">
                   <Link

@@ -81,8 +81,8 @@ function Accueil() {
         <Row className="g-4 justify-content-center">
           {[
             { icon: <HiOutlineLibrary />, title: "Collections", text: "Accédez à un patrimoine documentaire unique.", link: "/library", color: caebBlue },
-            { icon: <HiOutlineUserAdd />, title: "S'abonner", text: "Rejoignez notre réseau et profitez d'avantages.", link: "/newsletter", color: caebOrange },
-            { icon: <HiOutlineMailOpen />, title: "Contact", text: "Besoin d'aide ? Nos experts vous répondent.", link: "/contact", color: caebBlue }
+            { icon: <HiOutlineUserAdd />, title: "S'abonner", text: "Rejoignez notre réseau et profitez d'avantages.", link: "/subscription", color: caebOrange },
+            { icon: <HiOutlineMailOpen />, title: "Contact", text: "Besoin d'aide ? Nos experts vous répondent.", link: "/contactez-nous", color: caebBlue }
           ].map((item, i) => (
             <Col md={4} key={i}>
               <div 

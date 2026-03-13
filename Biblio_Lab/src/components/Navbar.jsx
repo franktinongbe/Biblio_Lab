@@ -107,7 +107,7 @@ function Navbar() {
                 </Dropdown.Menu>
               </Dropdown>
               <Link 
-                to="/newsletter"
+                to="/subscription"
                 className="btn ms-3 px-4 shadow-sm"
                 style={{ 
                   backgroundColor: caebOrange, 
